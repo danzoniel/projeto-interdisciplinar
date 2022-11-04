@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
+
 
 namespace projeto_rfid.DAO
 {
@@ -12,9 +13,9 @@ namespace projeto_rfid.DAO
         /// Método Estático que retorna um conexao aberta com o BD
         /// </summary>
         /// <returns>Conexão aberta</returns>
-        public static SqlConnection GetConexao()
+        public static  SqlConnection GetConexao()
         {
-            string strCon = @"Data Source = DAN\SQLEXPRESS; Database = AULADB; integrated security = true";
+            string strCon = "Data Source = DAN\\SQLEXPRESS; Database = ALUNODB; integrated security = true";
             SqlConnection conexao = new SqlConnection(strCon);
             conexao.Open();
             return conexao;

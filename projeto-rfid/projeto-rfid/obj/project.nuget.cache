@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lDZVwQu3XQc+/ZadflMEa6HM1OeXK+pxKrGczLqVpEE/RWReag8zB9FJ3LP8fLljZUPIVUAuRN0iC0YrZeIu6w==",
+  "dgSpecHash": "DYQwK58OCX+XBkomkMac2gFUAv6wJ9WQMLpopRyfN94sce96XQNBB0+c/uGRUPicKD8aGE/H4L0fvATXNHtOmA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\danie\\Downloads\\projeto-rfid\\projeto-rfid\\projeto-rfid\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj",
+  "projectFilePath": "C:\\Users\\danie\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danie\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

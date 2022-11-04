@@ -3100,7 +3100,8 @@
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 3.1.24",
       "Microsoft.Data.SqlClient >= 5.0.1",
-      "System.Data.SqlClient >= 4.8.4"
+      "System.Data.SqlClient >= 4.8.4",
+      "runtime.native.System.Data.SqlClient.sni >= 4.7.0"
     ]
   },
   "packageFolders": {
@@ -3109,11 +3110,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\danie\\Downloads\\projeto-rfid\\projeto-rfid\\projeto-rfid\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj",
+      "projectUniqueName": "C:\\Users\\danie\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj",
       "projectName": "projeto-rfid",
-      "projectPath": "C:\\Users\\danie\\Downloads\\projeto-rfid\\projeto-rfid\\projeto-rfid\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj",
+      "projectPath": "C:\\Users\\danie\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj",
       "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\danie\\Downloads\\projeto-rfid\\projeto-rfid\\projeto-rfid\\projeto-rfid\\projeto-rfid\\obj\\",
+      "outputPath": "C:\\Users\\danie\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3153,6 +3154,10 @@
           "System.Data.SqlClient": {
             "target": "Package",
             "version": "[4.8.4, )"
+          },
+          "runtime.native.System.Data.SqlClient.sni": {
+            "target": "Package",
+            "version": "[4.7.0, )"
           }
         },
         "imports": [
