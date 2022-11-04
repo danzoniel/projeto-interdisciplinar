@@ -34,6 +34,7 @@
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "3.1.24",
           "Microsoft.Data.SqlClient": "5.0.1",
           "System.Data.SqlClient": "4.8.4",
+          "runtime.native.System.Data.SqlClient.sni": "4.7.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
