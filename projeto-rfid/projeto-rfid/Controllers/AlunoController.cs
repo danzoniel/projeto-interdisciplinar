@@ -16,5 +16,21 @@ namespace projeto_rfid.Controllers
             List<AlunoViewModel> lista = dao.Listagem();
             return View(lista);
         }
+
+        public IActionResult Create()
+        {
+            AlunoViewModel aluno = new AlunoViewModel();
+            aluno.DataNascimento = DateTime.Now;
+            return View("Form", aluno);
+        }
+
+        public IActionResult Salvar(AlunoViewModel aluno)
+        {
+            AlunoDAO dao = new AlunoDAO();
+            dao.Inserir(aluno);
+            return RedirectToAction("index");
+        }
+
+
     }
 }
