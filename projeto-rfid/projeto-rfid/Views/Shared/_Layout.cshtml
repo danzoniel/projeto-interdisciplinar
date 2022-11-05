@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,10 +9,9 @@
 </head>
 <body>
     <header>
-
         <div class="container_navbar" style="display:flex; width:100%">
             <div class="logo_holder" style="width:30%; align-items:center; justify-content:center; display:flex">
-               <a href="#"> <img src="http://faculdadesalvadorarena.org.br/wp-content/uploads/2019/10/logo_novo.jpg" alt="Logo Faculdade"/> </a>
+               <a href="../"> <img src="http://faculdadesalvadorarena.org.br/wp-content/uploads/2019/10/logo_novo.jpg" alt="Logo Faculdade"/> </a>
                 
             </div>
 
@@ -25,10 +24,10 @@
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">ENTRAR</a>
+                                <a href="/aluno/create" class="nav-link text-white">ENTRAR</a>
                             </li>
                             <li class="nav-item">
-                                <a sytle="color:white" class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">SOBRE NÓS</a>
+                                <a href="/home/sobre" class="nav-link text-white">SOBRE NÓS</a>
                             </li>
                         </ul>
                     </div>
@@ -37,7 +36,8 @@
         </div>
     </header>
 
-    <div class="container">
+    
+    <div class="container_titulo" style="display:flex; align-items:center; justify-content:center; margin-top:15px">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
