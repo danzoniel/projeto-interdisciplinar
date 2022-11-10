@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\danie\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj": {}
+    "C:\\Users\\Dan\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj": {}
   },
   "projects": {
-    "C:\\Users\\danie\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj": {
+    "C:\\Users\\Dan\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\danie\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj",
+        "projectUniqueName": "C:\\Users\\Dan\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj",
         "projectName": "projeto-rfid",
-        "projectPath": "C:\\Users\\danie\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj",
-        "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\danie\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\obj\\",
+        "projectPath": "C:\\Users\\Dan\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\projeto-rfid.csproj",
+        "packagesPath": "C:\\Users\\Dan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dan\\Desktop\\projeto-interdisciplinar\\projeto-rfid\\projeto-rfid\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -79,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
         }
       }
     }
