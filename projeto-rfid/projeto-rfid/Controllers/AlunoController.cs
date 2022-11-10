@@ -31,6 +31,11 @@ namespace projeto_rfid.Controllers
             return RedirectToAction("index");
         }
 
+        public IActionResult Configuracoes()
+        {
+            return View();
+        }
+
 
     }
 }
