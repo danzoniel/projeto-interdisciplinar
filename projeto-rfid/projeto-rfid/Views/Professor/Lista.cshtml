@@ -1,0 +1,24 @@
+﻿@model List<ProfessorViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="titulo" style="display:flex; align-items:center; justify-content:center">
+    <h1 style="color: #0168B3">Lista Professores</h1>
+</div>
+
+<table class="table table-responsive">
+    <tr>
+        <th>Id Professor</th>
+        <th>Nome Professor</th>
+    </tr>
+    @foreach (var professor in Model)
+    {
+        <tr>
+            <td></td>
+            <td>@professor.IdProfessor</td>
+            <td>@professor.NomeProfessor</td>
+        </tr>
+    }
+</table>

@@ -15,7 +15,7 @@ namespace projeto_rfid.DAO
         /// <returns>Conexão aberta</returns>
         public static  SqlConnection GetConexao()
         {
-            string strCon = @"Data Source = DAN\SQLEXPRESS; Database = AlunoDB; integrated security = true";
+            string strCon = @"Data Source = DAN\SQLEXPRESS; Database = alunosBD; integrated security = true";
             SqlConnection conexao = new SqlConnection(strCon);
             conexao.Open();
             return conexao;
