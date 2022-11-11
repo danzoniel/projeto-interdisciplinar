@@ -8,10 +8,10 @@
 <form action="Salvar" method="post" class="form-group" style="display:flex; align-items:center; width:100%; justify-content: center">
     <div class="conteudo" style="width:65%">
         <label for="Id" class="control-label" style="color: #0168B3">RA</label>
-        <input type="number" Name="IdProfessor" value="" class="form-control" />
+        <input type="number" Name="IdProfessor" value="@Model.IdProfessor" class="form-control"  />
         <br />
         <label for="Nome" class="control-label" style="color: #0168B3">Nome do aluno</label>
-        <input type="text" Name="nomeProfessor" value="" class="form-control" />
+        <input type="text" Name="nomeProfessor" value="@Model.nomeProfessor" class="form-control" />
         <br />
         <div class="buttons" style="display:flex; justify-content:space-between">
             <input type="submit" value="Salvar" class="btn btn-success" style="width:45%" />
