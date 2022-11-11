@@ -17,5 +17,18 @@ namespace projeto_rfid.Controllers
             return View(lista);
         
         }
+
+        public IActionResult Create()
+        {
+            ProfessorViewModel professor = new ProfessorViewModel();
+            return View("FormProfessor", professor);
+        }
+
+        public IActionResult Salvar(ProfessorViewModel professor)
+        {
+            ProfessorDAO dao = new ProfessorDAO();
+            dao.Inserir(professor);
+            return RedirectToAction("lista");
+        }
     }
 }
