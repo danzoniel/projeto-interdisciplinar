@@ -44,5 +44,12 @@ namespace projeto_rfid.DAO
                 lista.Add(MontaProfessor(registro));
             return lista;
         }
+
+        public void Alterar(ProfessorViewModel professor)
+        {
+            string sql =
+            "update professor set nomeProfessor = @nomeProfessor, where id = @id";
+            HelperDAO.ExecutaSQL(sql, CriaParametros(professor));
+        }
     }
 }

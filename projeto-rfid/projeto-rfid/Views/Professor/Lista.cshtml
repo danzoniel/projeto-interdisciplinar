@@ -13,6 +13,7 @@
     <tr>
         <th>Id Professor</th>
         <th>Nome Professor</th>
+        <th>Ação</th>
     </tr>
     @foreach (var professor in Model)
     {
@@ -20,6 +21,7 @@
             <td></td>
             <td>@professor.IdProfessor</td>
             <td>@professor.nomeProfessor</td>
+            <td><a href="/professor/alterar">Editar</a></td>
         </tr>
     }
 </table>

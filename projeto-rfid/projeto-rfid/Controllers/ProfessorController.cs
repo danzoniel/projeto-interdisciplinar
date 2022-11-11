@@ -30,5 +30,10 @@ namespace projeto_rfid.Controllers
             dao.Inserir(professor);
             return RedirectToAction("lista");
         }
+
+        public IActionResult Alterar()
+        {
+            return View("Alterar");
+        }
     }
 }
