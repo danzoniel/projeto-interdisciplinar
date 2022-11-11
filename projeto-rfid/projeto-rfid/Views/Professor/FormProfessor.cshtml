@@ -1,0 +1,16 @@
+﻿@model ProfessorViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cadastro de Aluno</h2>
+<form action="Salvar" method="post">
+    <label for="Id" class="control-label">RA</label>
+    <input type="number" Name="IdProfessor" value="@Model.IdProfessor" />
+    <br />
+    <label for="Nome" class="control-label">Nome do aluno</label>
+    <input type="text" Name="nomeProfessor" value="@Model.nomeProfessor" />
+    <br />
+    <input type="submit" value="Salvar dados" />
+    <br />
+</form>

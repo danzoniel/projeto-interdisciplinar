@@ -9,7 +9,7 @@ namespace projeto_rfid.Models
     public class ProfessorViewModel
     {
         public int IdProfessor { get; set; }
-        public string NomeProfessor { get; set; }
+        public string nomeProfessor { get; set; }
 
     }
 }

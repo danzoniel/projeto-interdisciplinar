@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using projeto_rfid.Models;
+
 namespace projeto_rfid.DAO
 {
     public class ProfessorDAO
@@ -12,7 +13,7 @@ namespace projeto_rfid.DAO
         public void Inserir(ProfessorViewModel professor)
         {
             string sql =
-            "insert into professor(IdProfessor, nomeProfessor)" +
+            "insert into professor (IdProfessor, nomeProfessor)" +
             "values ( @IdProfessor, @nomeProfessor)";
             HelperDAO.ExecutaSQL(sql, CriaParametros(professor));
         }
@@ -20,7 +21,8 @@ namespace projeto_rfid.DAO
         private SqlParameter[] CriaParametros(ProfessorViewModel professor)
         {
             SqlParameter[] parametros = new SqlParameter[2];
-            parametros[0] = new SqlParameter("id", professor.IdProfessor);
+            parametros[0] = new SqlParameter("IdProfessor", professor.IdProfessor);
+            parametros[1] = new SqlParameter("nomeProfessor", professor.nomeProfessor);
             return parametros;
         }
 
@@ -28,8 +30,8 @@ namespace projeto_rfid.DAO
         private ProfessorViewModel MontaProfessor(DataRow registro)
         {
             ProfessorViewModel a = new ProfessorViewModel();
-            a.IdProfessor = Convert.ToInt32(registro["id"]);
-            a.NomeProfessor = registro["nome"].ToString();
+            a.IdProfessor = Convert.ToInt32(registro["IdProfessor"]);
+            a.nomeProfessor = registro["nomeProfessor"].ToString();
             return a;
         }
 
@@ -42,6 +44,5 @@ namespace projeto_rfid.DAO
                 lista.Add(MontaProfessor(registro));
             return lista;
         }
-
     }
 }
