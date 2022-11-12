@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\assets\**" />
+    <Compile Remove="Views\css\**" />
+    <Content Remove="Views\assets\**" />
+    <Content Remove="Views\css\**" />
+    <EmbeddedResource Remove="Views\assets\**" />
+    <EmbeddedResource Remove="Views\css\**" />
+    <None Remove="Views\assets\**" />
+    <None Remove="Views\css\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.24" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
@@ -16,8 +27,6 @@
 
   <ItemGroup>
     <Folder Include="Components\" />
-    <Folder Include="Views\assets\" />
-    <Folder Include="Views\css\" />
   </ItemGroup>
 
 </Project>
