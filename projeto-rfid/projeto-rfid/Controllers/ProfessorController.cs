@@ -15,28 +15,50 @@ namespace projeto_rfid.Controllers
             ProfessorDAO dao = new ProfessorDAO();
             List<ProfessorViewModel> lista = dao.Listagem();
             return View(lista);
-        
+
         }
 
         public IActionResult Create()
         {
             ProfessorViewModel professor = new ProfessorViewModel();
-            return View("FormProfessor", professor);
+            return View("Cadastro", professor);
         }
 
-        public IActionResult Salvar(ProfessorViewModel professor)
+        public IActionResult SalvarCreate(ProfessorViewModel professor)
+        {
+                ProfessorDAO dao = new ProfessorDAO();
+                dao.Inserir(professor);
+                return RedirectToAction("lista");
+        }
+
+        public IActionResult SalvarUpdate(ProfessorViewModel professor)
         {
             ProfessorDAO dao = new ProfessorDAO();
-            dao.Inserir(professor);
+            dao.Alterar(professor);
             return RedirectToAction("lista");
         }
 
         public IActionResult Alterar(int id)
         {
             var DAO = new ProfessorDAO();
-            DAO.Consulta(id);
-            var professor = new ProfessorViewModel();
-            return View("Alterar",professor);
+            var professor = DAO.Consulta(id);
+            return View("Alterar", professor);
+        }
+
+        public IActionResult Update(ProfessorViewModel professor)
+        {
+
+            ProfessorDAO dao = new ProfessorDAO();
+            dao.Alterar(professor);
+            return RedirectToAction("lista");
+
+        }
+        public IActionResult Delete(int id)
+        {
+            ProfessorDAO dao = new ProfessorDAO();
+            dao.Excluir(id);
+            return RedirectToAction("lista");
+
         }
     }
 }

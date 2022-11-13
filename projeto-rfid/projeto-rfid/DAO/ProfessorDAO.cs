@@ -48,18 +48,24 @@ namespace projeto_rfid.DAO
         public void Alterar(ProfessorViewModel professor)
         {
             string sql =
-            "update professor set nomeProfessor = @nomeProfessor, where id = @id";
+            "update Professor set nomeProfessor = @nomeProfessor where IdProfessor = @IdProfessor";
             HelperDAO.ExecutaSQL(sql, CriaParametros(professor));
         }
 
         public ProfessorViewModel Consulta(int id)
         {
-            string sql = "select * from professor where id = " + id;
+            string sql = "select * from Professor where IdProfessor = " + id;
             DataTable tabela = HelperDAO.ExecutaSelect(sql, null);
             if (tabela.Rows.Count == 0)
                 return null;
             else
                 return MontaProfessor(tabela.Rows[0]);
+        }
+
+        public void Excluir(int id)
+        {
+            string sql = "delete professor where IdProfessor =" + id;
+            HelperDAO.ExecutaSQL(sql, null);
         }
     }
 }

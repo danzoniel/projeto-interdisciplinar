@@ -8,20 +8,24 @@
     <h1 style="color: #0168B3">Lista Professores</h1>
 </div>
 
-<a href="create">Cadastro novo professor</a>
-<table class="table table-responsive">
-    <tr>
-        <th>Id Professor</th>
-        <th>Nome Professor</th>
-        <th>Ação</th>
-    </tr>
-    @foreach (var professor in Model)
-    {
-        <tr>
-            <td></td>
-            <td>@professor.IdProfessor</td>
-            <td>@professor.nomeProfessor</td>
-            <td><a href="/professor/alterar?id=@professor.IdProfessor">Editar</a></td>
-        </tr>
-    }
-</table>
+<div class="conteudo" style="display:flex; align-items:center; justify-content:center; width:100%; margin-top:10px">
+    <div class="conteudo-2">
+        <a href="create">Cadastro novo professor</a>
+        <table class="table table-responsive table-hover">
+            <tr style="color: #0168B3">
+                <th>Ações</th>
+                <th>Id Professor</th>
+                <th>Nome Professor</th>
+            </tr>
+            @foreach (var professor in Model)
+            {
+                <tr>
+                    <td></td>
+                    <td><a href="/professor/alterar?id=@professor.IdProfessor">Editar</a>
+                    <td>@professor.IdProfessor</td>
+                    <td>@professor.nomeProfessor</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
