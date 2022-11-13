@@ -67,5 +67,12 @@ namespace projeto_rfid.DAO
             string sql = "delete professor where IdProfessor =" + id;
             HelperDAO.ExecutaSQL(sql, null);
         }
+
+        public int ProximoId()
+        {
+            string sql = "select isnull(max(id) +1, 1) as 'MAIOR' from professor";
+            DataTable tabela = HelperDAO.ExecutaSelect(sql, null);
+            return Convert.ToInt32(tabela.Rows[0]["MAIOR"]);
+        }
     }
 }
