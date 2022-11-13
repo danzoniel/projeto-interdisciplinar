@@ -20,12 +20,24 @@
             @foreach (var professor in Model)
             {
                 <tr>
-                    <td></td>
-                    <td><a href="/professor/alterar?id=@professor.IdProfessor">Editar</a>
+                    <td>
+                        <a href="/professor/alterar?id=@professor.IdProfessor">Editar</a>
+                        <a href="javascript:apagarProfessor(@professor.IdProfessor)">Excluir</a>
+                    </td>
                     <td>@professor.IdProfessor</td>
                     <td>@professor.nomeProfessor</td>
                 </tr>
             }
         </table>
+
+        <script>
+            function apagarProfessor(id) {
+                if (confirm('Confirma a exclusão do registro?'))
+                    location.href = '/professor/delete?id=' + id;
+            }
+        </script>
+
     </div>
 </div>
+
+

@@ -33,9 +33,23 @@ namespace projeto_rfid.Controllers
 
         public IActionResult SalvarUpdate(ProfessorViewModel professor)
         {
-            ProfessorDAO dao = new ProfessorDAO();
-            dao.Alterar(professor);
-            return RedirectToAction("lista");
+            try
+            {
+                ProfessorDAO dao = new ProfessorDAO();
+
+                if (dao.Consulta(professor.IdProfessor) == null)
+                    dao.Inserir(professor);
+                else
+                    dao.Alterar(professor);
+
+                return RedirectToAction("lista");
+            }
+
+            catch (Exception erro)
+            {
+                return View("erro");
+            }
+
         }
 
         public IActionResult Alterar(int id)
@@ -55,9 +69,16 @@ namespace projeto_rfid.Controllers
         }
         public IActionResult Delete(int id)
         {
-            ProfessorDAO dao = new ProfessorDAO();
-            dao.Excluir(id);
-            return RedirectToAction("lista");
+            try
+            {
+                ProfessorDAO dao = new ProfessorDAO();
+                dao.Excluir(id);
+                return RedirectToAction("lista");
+            }
+            catch (Exception erro)
+            {
+                return View("error");
+            }
 
         }
     }
