@@ -3,15 +3,34 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (ViewBag.Operacao == "I")
+{
 <div class="titulo" style="display:flex; align-items:center; justify-content:center">
-    <h1 style="color: #0168B3">Cadastro de Aluno</h1>
+    <h1 style="color: #0168B3">Cadastrar Professor</h1>
 </div>
+}
+else 
+{
+<div class="titulo" style="display:flex; align-items:center; justify-content:center">
+    <h1 style="color: #0168B3">Editar Professor</h1>
+</div>
+}
+
 
 
 <form action="Salvar" method="post" class="form-group" style="display:flex; align-items:center; width:100%; justify-content: center">
+    <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
     <div class="conteudo" style="width:65%">
         <label for="Id" class="control-label" style="color: #0168B3">RA</label>
-        <input type="number" Name="IdProfessor" value="@Model.IdProfessor" class="form-control"/>
+        @if (ViewBag.Operacao == "I")
+        {
+            <input type="number" Name="IdProfessor" value="@Model.IdProfessor" class="form-control" />
+        }
+        else
+        {
+            <input type="number" Name="IdProfessor" value="@Model.IdProfessor" class="form-control disabled" readonly/>
+        }
         <br />
         <label for="Nome" class="control-label" style="color: #0168B3">Nome do aluno</label>
         <input type="text" Name="nomeProfessor" value="@Model.nomeProfessor" class="form-control" />

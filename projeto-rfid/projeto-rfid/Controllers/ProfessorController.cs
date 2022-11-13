@@ -20,16 +20,18 @@ namespace projeto_rfid.Controllers
 
         public IActionResult Create()
         {
+
             ViewBag.Operacao = "I";
+
             try
             {
                 ProfessorViewModel professor = new ProfessorViewModel();
-                return View("Cadastro", professor);
+                return View("Form", professor);
 
                 ProfessorDAO dao = new ProfessorDAO();
                 professor.IdProfessor = dao.ProximoId();
 
-                return View("Cadastro", professor);
+                return View("Form", professor);
             }
             catch
             {
@@ -38,13 +40,27 @@ namespace projeto_rfid.Controllers
 
         }
 
-        public IActionResult Salvar(ProfessorViewModel professor)
+        public IActionResult Salvar(ProfessorViewModel professor, string Operacao)
         {
+            try
+            {
                 ProfessorDAO dao = new ProfessorDAO();
-                dao.Inserir(professor);
-                return RedirectToAction("lista");
-        }
 
+                if (Operacao == "I")
+                    dao.Inserir(professor);
+                else
+                    dao.Alterar(professor);
+
+                return RedirectToAction("lista");
+            }
+            catch (Exception erro)
+            {
+                return View("Error");
+
+            }
+
+        }
+        /*
         public IActionResult SalvarUpdate(ProfessorViewModel professor)
         {
             try
@@ -64,13 +80,13 @@ namespace projeto_rfid.Controllers
                 return View("erro");
             }
 
-        }
+        }*/
 
         public IActionResult Alterar(int id)
         {
             var DAO = new ProfessorDAO();
             var professor = DAO.Consulta(id);
-            return View("Alterar", professor);
+            return View("Form", professor);
         }
 
         public IActionResult Update(ProfessorViewModel professor)
