@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using projeto_rfid.DAO;
 using projeto_rfid.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace projeto_rfid.Controllers
 {
@@ -26,10 +27,9 @@ namespace projeto_rfid.Controllers
             try
             {
                 ProfessorViewModel professor = new ProfessorViewModel();
-                return View("Form", professor);
-
                 ProfessorDAO dao = new ProfessorDAO();
-                professor.IdProfessor = dao.ProximoId();
+
+                //professor.IdProfessor = dao.ProximoId(); -> Função com erro
 
                 return View("Form", professor);
             }
@@ -44,14 +44,22 @@ namespace projeto_rfid.Controllers
         {
             try
             {
-                ProfessorDAO dao = new ProfessorDAO();
-
-                if (Operacao == "I")
-                    dao.Inserir(professor);
+                ValidaDados(professor, Operacao);
+                if (ModelState.IsValid == false)
+                {
+                    ViewBag.Operacao = Operacao;
+                    return View("Form", professor);
+                }
                 else
-                    dao.Alterar(professor);
+                {
+                    ProfessorDAO dao = new ProfessorDAO();
+                    if (Operacao == "I")
+                        dao.Inserir(professor);
+                    else
+                        dao.Alterar(professor);
 
-                return RedirectToAction("lista");
+                    return RedirectToAction("lista");
+                }
             }
             catch (Exception erro)
             {
@@ -110,7 +118,20 @@ namespace projeto_rfid.Controllers
             {
                 return View("error");
             }
+        }
 
+        private void ValidaDados(ProfessorViewModel professor, string operacao)
+        {
+            ModelState.Clear(); // limpa os erros criados automaticamente pelo Asp.net (que podem estar com msg em inglês)
+            ProfessorDAO dao = new ProfessorDAO();
+            if (operacao == "I" && dao.Consulta(professor.IdProfessor) != null)
+                ModelState.AddModelError("Id", "Código já está em uso.");
+            if (operacao == "A" && dao.Consulta(professor.IdProfessor) == null)
+                ModelState.AddModelError("Id", "Aluno não existe.");
+            if (professor.IdProfessor <= 0)
+                ModelState.AddModelError("Id", "Id inválido!");
+            if (string.IsNullOrEmpty(professor.nomeProfessor))
+                ModelState.AddModelError("Nome", "Preencha o nome.");
         }
     }
 }
