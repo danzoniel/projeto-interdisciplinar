@@ -13,10 +13,17 @@ namespace projeto_rfid.DAO
 
         protected override SqlParameter[] CriaParametros(ProfessorViewModel model)
         {
-            SqlParameter[] parametros = new SqlParameter[2];
-            parametros[0] = new SqlParameter("id", model.Id);
-            parametros[1] = new SqlParameter("nome", model.Nome);
+            object imgByte = model.ImagemEmByte;
+            if (imgByte == null)
+                imgByte = DBNull.Value;
 
+            SqlParameter[] parametros = 
+            {
+                 new SqlParameter("id", model.Id),
+                 new SqlParameter("nome", model.Nome),
+                 new SqlParameter("imagem", imgByte)
+            };
+           
             return parametros;
         }
 
@@ -28,6 +35,10 @@ namespace projeto_rfid.DAO
                 Id = Convert.ToInt32(registro["id"]),
                 Nome = registro["nome"].ToString()
             };
+
+            if (registro["imagem"] != DBNull.Value)
+                c.ImagemEmByte = registro["imagem"] as byte[];
+
             return c;
         }
 

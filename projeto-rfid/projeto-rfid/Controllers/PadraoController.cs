@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using projeto_rfid.DAO;
 using projeto_rfid.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
 
 
 namespace projeto_rfid.Controllers
