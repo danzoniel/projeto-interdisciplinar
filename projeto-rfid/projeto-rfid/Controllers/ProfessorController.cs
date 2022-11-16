@@ -35,6 +35,12 @@ namespace projeto_rfid.Controllers
             else
                 return null;
         }
+
+        public IActionResult Configuracoes()
+        {
+            return View();
+        }
+
         protected override void ValidaDados(ProfessorViewModel model, string operacao)
         {
             base.ValidaDados(model, operacao);

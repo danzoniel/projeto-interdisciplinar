@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="titulo" style="display:flex; align-items:center; justify-content:center">
+    <h1 style="color: #0168B3">Configurações</h1>
+</div>
+
+<div class="conteudo">
+    <div class="row">
+        <div class="col-sm-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">MATÉRIAS</h5>
+                    <a href="#" class="btn btn-primary">Editar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">PROFESSORES</h5>
+                    <a asp-area="" asp-controller="Professor" asp-action="Index" class="btn btn-primary">Editar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">ALUNOS</h5>
+                    <a href="#" class="btn btn-primary">Editar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">AULAS</h5>
+                    <a href="/aula/Index" class="btn btn-primary">Editar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

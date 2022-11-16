@@ -7,14 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Aluno\**" />
     <Compile Remove="Views\assets\**" />
     <Compile Remove="Views\css\**" />
+    <Content Remove="Views\Aluno\**" />
     <Content Remove="Views\assets\**" />
     <Content Remove="Views\css\**" />
+    <EmbeddedResource Remove="Views\Aluno\**" />
     <EmbeddedResource Remove="Views\assets\**" />
     <EmbeddedResource Remove="Views\css\**" />
+    <None Remove="Views\Aluno\**" />
     <None Remove="Views\assets\**" />
     <None Remove="Views\css\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\AlunoController.cs" />
+    <Compile Remove="DAO\AlunoDAO.cs" />
+    <Compile Remove="Models\AlunoViewModel.cs" />
   </ItemGroup>
 
   <ItemGroup>
