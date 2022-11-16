@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace projeto_rfid.Models
 {
-    public class ProfessorViewModel
+    public class ProfessorViewModel : PadraoViewModel
     {
         [Required]
-        public int IdProfessor { get; set; }
-        public string nomeProfessor { get; set; }
+        public string Nome { get; set; }
 
 
     }

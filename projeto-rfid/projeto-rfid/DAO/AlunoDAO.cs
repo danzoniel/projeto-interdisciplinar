@@ -13,26 +13,26 @@ namespace projeto_rfid.DAO
         public void Inserir(AlunoViewModel aluno)
         {
             string sql =
-            "insert into alunos(id, nome, mensalidade, cidadeId, dataNascimento)" +
-            "values ( @id, @nome, @mensalidade, @cidadeId, @dataNascimento)";
+            "insert into alunos(id, Nome, mensalidade, cidadeid, dataNascimento)" +
+            "values ( @id, @Nome, @mensalidade, @cidadeid, @dataNascimento)";
             HelperDAO.ExecutaSQL(sql, CriaParametros(aluno));
         }
         public void Alterar(AlunoViewModel aluno)
         {
             string sql =
-            "update alunos set nome = @nome, " +
+            "update alunos set Nome = @Nome, " +
             "mensalidade = @mensalidade, " +
-            "cidadeId = @cidadeId," +
+            "cidadeid = @cidadeid," +
             "dataNascimento = @dataNascimento where id = @id";
             HelperDAO.ExecutaSQL(sql, CriaParametros(aluno));
         }
         private SqlParameter[] CriaParametros(AlunoViewModel aluno)
         {
             SqlParameter[] parametros = new SqlParameter[5];
-            parametros[0] = new SqlParameter("id", aluno.Id);
-            parametros[1] = new SqlParameter("nome", aluno.Nome);
+            parametros[0] = new SqlParameter("id", aluno.id);
+            parametros[1] = new SqlParameter("Nome", aluno.Nome);
             parametros[2] = new SqlParameter("mensalidade", aluno.Mensalidade);
-            parametros[3] = new SqlParameter("cidadeId", aluno.CidadeId);
+            parametros[3] = new SqlParameter("cidadeid", aluno.Cidadeid);
             parametros[4] = new SqlParameter("dataNascimento", aluno.DataNascimento);
             return parametros;
         }
@@ -45,9 +45,9 @@ namespace projeto_rfid.DAO
         private AlunoViewModel MontaAluno(DataRow registro)
         {
             AlunoViewModel a = new AlunoViewModel();
-            a.Id = Convert.ToInt32(registro["id"]);
-            a.Nome = registro["nome"].ToString();
-            a.CidadeId = Convert.ToInt32(registro["cidadeId"]);
+            a.id = Convert.ToInt32(registro["id"]);
+            a.Nome = registro["Nome"].ToString();
+            a.Cidadeid = Convert.ToInt32(registro["cidadeid"]);
             a.DataNascimento = Convert.ToDateTime(registro["dataNascimento"]);
             a.Mensalidade = Convert.ToDouble(registro["mensalidade"]);
             return a;
@@ -65,7 +65,7 @@ namespace projeto_rfid.DAO
         public List<AlunoViewModel> Listagem()
         {
             List<AlunoViewModel> lista = new List<AlunoViewModel>();
-            string sql = "select * from alunos order by nome";
+            string sql = "select * from alunos order by Nome";
             DataTable tabela = HelperDAO.ExecutaSelect(sql, null);
             foreach (DataRow registro in tabela.Rows)
                 lista.Add(MontaAluno(registro));

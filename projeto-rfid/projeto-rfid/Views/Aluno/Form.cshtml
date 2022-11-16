@@ -6,8 +6,8 @@
 
 <h2>Cadastro de Aluno</h2>
 <form action="Salvar" method="post">
-    <label for="Id" class="control-label">RA</label>
-    <input type="number" Name="Id" value="@Model.Id" />
+    <label for="id" class="control-label">RA</label>
+    <input type="number" Name="id" value="@Model.id" />
     <br />
     <label for="Nome" class="control-label">Nome do aluno</label>
     <input type="text" Name="Nome" value="@Model.Nome" />
@@ -18,8 +18,8 @@
     <label for="DataNascimento" class="control-label">Data de nascimento</label>
     <input type="date" Name="DataNascimento" value="@Model.DataNascimento.ToString("yyyy-MM-dd")" />
     <br />
-    <label for="CidadeId" class="control-label">Código da cidade</label>
-    <input type="number" Name="CidadeId" value="@Model.CidadeId" />
+    <label for="Cidadeid" class="control-label">Código da cidade</label>
+    <input type="number" Name="Cidadeid" value="@Model.Cidadeid" />
     <br />
     <input type="submit" value="Salvar dados" />
     <br />

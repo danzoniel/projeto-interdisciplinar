@@ -38,11 +38,11 @@ namespace projeto_rfid.DAO
             }
         }
 
-        public static DataTable ExecutaProcSelect(string nomeProc, SqlParameter[] parametros)
+        public static DataTable ExecutaProcSelect(string NomeProc, SqlParameter[] parametros)
         {
             using (SqlConnection conexao = ConexaoDB.GetConexao())
             {
-                using (SqlDataAdapter adapter = new SqlDataAdapter(nomeProc, conexao))
+                using (SqlDataAdapter adapter = new SqlDataAdapter(NomeProc, conexao))
                 {
                     if (parametros != null)
                         adapter.SelectCommand.Parameters.AddRange(parametros);
@@ -55,11 +55,11 @@ namespace projeto_rfid.DAO
             }
         }
 
-        public static void ExecutaProc(string nomeProc, SqlParameter[] parametros)
+        public static void ExecutaProc(string NomeProc, SqlParameter[] parametros)
         {
             using (SqlConnection conexao = ConexaoDB.GetConexao())
             {
-                using (SqlCommand comando = new SqlCommand(nomeProc, conexao))
+                using (SqlCommand comando = new SqlCommand(NomeProc, conexao))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     if (parametros != null)
