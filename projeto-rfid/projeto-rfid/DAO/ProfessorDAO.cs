@@ -8,71 +8,32 @@ using projeto_rfid.Models;
 
 namespace projeto_rfid.DAO
 {
-    public class ProfessorDAO
+    public class ProfessorDAO : PadraoDAO<ProfessorViewModel>
     {
-        public void Inserir(ProfessorViewModel professor)
-        {
-            string sql =
-            "insert into professor (IdProfessor, nomeProfessor)" +
-            "values ( @IdProfessor, @nomeProfessor)";
-            HelperDAO.ExecutaSQL(sql, CriaParametros(professor));
-        }
 
-        private SqlParameter[] CriaParametros(ProfessorViewModel professor)
+        protected override SqlParameter[] CriaParametros(ProfessorViewModel model)
         {
             SqlParameter[] parametros = new SqlParameter[2];
-            parametros[0] = new SqlParameter("IdProfessor", professor.IdProfessor);
-            parametros[1] = new SqlParameter("nomeProfessor", professor.nomeProfessor);
+            parametros[0] = new SqlParameter("id", model.Id);
+            parametros[1] = new SqlParameter("nome", model.Nome);
+
             return parametros;
         }
 
 
-        private ProfessorViewModel MontaProfessor(DataRow registro)
+        protected override ProfessorViewModel MontaModel(DataRow registro)
         {
-            ProfessorViewModel a = new ProfessorViewModel();
-            a.IdProfessor = Convert.ToInt32(registro["IdProfessor"]);
-            a.nomeProfessor = registro["nomeProfessor"].ToString();
-            return a;
+            ProfessorViewModel c = new ProfessorViewModel()
+            {
+                Id = Convert.ToInt32(registro["id"]),
+                Nome = registro["nome"].ToString()
+            };
+            return c;
         }
 
-        public List<ProfessorViewModel> Listagem()
+        protected override void SetTabela()
         {
-            List<ProfessorViewModel> lista = new List<ProfessorViewModel>();
-            string sql = "select * from Professor order by nomeProfessor";
-            DataTable tabela = HelperDAO.ExecutaSelect(sql, null);
-            foreach (DataRow registro in tabela.Rows)
-                lista.Add(MontaProfessor(registro));
-            return lista;
-        }
-
-        public void Alterar(ProfessorViewModel professor)
-        {
-            string sql =
-            "update Professor set nomeProfessor = @nomeProfessor where IdProfessor = @IdProfessor";
-            HelperDAO.ExecutaSQL(sql, CriaParametros(professor));
-        }
-
-        public ProfessorViewModel Consulta(int id)
-        {
-            string sql = "select * from Professor where IdProfessor = " + id;
-            DataTable tabela = HelperDAO.ExecutaSelect(sql, null);
-            if (tabela.Rows.Count == 0)
-                return null;
-            else
-                return MontaProfessor(tabela.Rows[0]);
-        }
-
-        public void Excluir(int id)
-        {
-            string sql = "delete professor where IdProfessor =" + id;
-            HelperDAO.ExecutaSQL(sql, null);
-        }
-
-        public int ProximoId()
-        {
-            string sql = "select isnull(max(id) +1, 1) as 'MAIOR' from professor";
-            DataTable tabela = HelperDAO.ExecutaSelect(sql, null);
-            return Convert.ToInt32(tabela.Rows[0]["MAIOR"]);
+            Tabela = "professor";
         }
     }
 }

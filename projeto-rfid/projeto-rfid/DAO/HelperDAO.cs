@@ -37,5 +37,39 @@ namespace projeto_rfid.DAO
                 }
             }
         }
+
+        public static DataTable ExecutaProcSelect(string NomeProc, SqlParameter[] parametros)
+        {
+            using (SqlConnection conexao = ConexaoDB.GetConexao())
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(NomeProc, conexao))
+                {
+                    if (parametros != null)
+                        adapter.SelectCommand.Parameters.AddRange(parametros);
+                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataTable tabela = new DataTable();
+                    adapter.Fill(tabela);
+                    conexao.Close();
+                    return tabela;
+                }
+            }
+        }
+
+        public static void ExecutaProc(string NomeProc, SqlParameter[] parametros)
+        {
+            using (SqlConnection conexao = ConexaoDB.GetConexao())
+            {
+                using (SqlCommand comando = new SqlCommand(NomeProc, conexao))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    if (parametros != null)
+                        comando.Parameters.AddRange(parametros);
+                    comando.ExecuteNonQuery();
+                }
+                conexao.Close();
+            }
+        }
+
+
     }
 }

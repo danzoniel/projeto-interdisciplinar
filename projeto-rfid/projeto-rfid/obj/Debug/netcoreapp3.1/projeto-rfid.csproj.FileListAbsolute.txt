@@ -2503,5 +2503,6 @@ C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debu
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\projeto-rfid.pdb
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\projeto-rfid.genruntimeconfig.cache
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Lista.cshtml.g.cs
-C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Lista.cshtml.g.cs
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Form.cshtml.g.cs
+C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Index.cshtml.g.cs
+C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aula\Index.cshtml.g.cs

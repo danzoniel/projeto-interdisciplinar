@@ -9,7 +9,7 @@
     <h1 style="color: #0168B3">Cadastrar Professor</h1>
 </div>
 }
-else 
+else
 {
 <div class="titulo" style="display:flex; align-items:center; justify-content:center">
     <h1 style="color: #0168B3">Editar Professor</h1>
@@ -18,26 +18,34 @@ else
 
 
 
-<form action="Salvar" method="post" class="form-group" style="display:flex; align-items:center; width:100%; justify-content: center">
+<form action="Save" method="post" class="form-group" style="display:flex; align-items:center; width:100%; justify-content: center">
     <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
 
     <div class="conteudo" style="width:65%">
-        <label for="Id" class="control-label" style="color: #0168B3">RA</label>
+        <label for="id" class="control-label" style="color: #0168B3">RA</label>
+
         @if (ViewBag.Operacao == "I")
         {
-            <input type="number" Name="IdProfessor" value="@Model.IdProfessor" class="form-control" />
+            <input type="number" Name="id" value="@Model.Id" class="form-control" />
+            <!--<input asp-for="id" class="form-control" />-->
         }
         else
         {
-            <input type="number" Name="IdProfessor" value="@Model.IdProfessor" class="form-control disabled" readonly/>
+            <!--<input type="number" Name="id" value="@Model.Id" class="form-control disabled" readonly />-->
+            <input asp-for="Id" class="form-control" readonly />
         }
+        <span asp-validation-for="Id" class="text-danger"></span>
         <br />
-        <label for="Nome" class="control-label" style="color: #0168B3">Nome do aluno</label>
-        <input type="text" Name="nomeProfessor" value="@Model.nomeProfessor" class="form-control" />
+
+        <label for="Nome" class="control-label" style="color: #0168B3">Nome do Professor</label>
+        <input type="text" Name="Nome" value="@Model.Nome" class="form-control" />
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Nome" class="text-danger"></span>
         <br />
+
         <div class="buttons" style="display:flex; justify-content:space-between">
             <input type="submit" value="Salvar" class="btn btn-success" style="width:45%" />
         </div>
     </div>
-    <br />
-</form>
+        <br />
+    </form>

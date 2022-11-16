@@ -10,22 +10,22 @@
 
 <div class="conteudo" style="display:flex; align-items:center; justify-content:center; width:100%; margin-top:10px">
     <div class="conteudo-2">
-        <a href="create">Cadastro novo professor</a>
+        <a href="/professor/Create">Cadastro novo Professor</a>
         <table class="table table-responsive table-hover">
             <tr style="color: #0168B3">
                 <th>Ações</th>
-                <th>Id Professor</th>
-                <th>Nome Professor</th>
+                <th>Id</th>
+                <th>Nome</th>
             </tr>
-            @foreach (var professor in Model)
+            @foreach (var Professor in Model)
             {
                 <tr>
                     <td>
-                        <a href="/professor/alterar?id=@professor.IdProfessor">Editar</a>
-                        <a href="javascript:apagarProfessor(@professor.IdProfessor)">Excluir</a>
+                        <a href="/professor/Edit?id=@Professor.Id">Editar</a>
+                        <a href="javascript:apagarProfessor(@Professor.Id)">Excluir</a>
                     </td>
-                    <td>@professor.IdProfessor</td>
-                    <td>@professor.nomeProfessor</td>
+                    <td>@Professor.Id</td>
+                    <td>@Professor.Nome</td>
                 </tr>
             }
         </table>
@@ -33,7 +33,7 @@
         <script>
             function apagarProfessor(id) {
                 if (confirm('Confirma a exclusão do registro?'))
-                    location.href = '/professor/delete?id=' + id;
+                    location.href = '/Professor/delete?id=' + id;
             }
         </script>
 

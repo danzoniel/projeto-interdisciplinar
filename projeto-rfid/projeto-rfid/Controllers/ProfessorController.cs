@@ -5,112 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using projeto_rfid.DAO;
 using projeto_rfid.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace projeto_rfid.Controllers
 {
-    public class ProfessorController : Controller
+    public class ProfessorController : PadraoController<ProfessorViewModel>
     {
-        public IActionResult lista()
+        public ProfessorController()
         {
-            ProfessorDAO dao = new ProfessorDAO();
-            List<ProfessorViewModel> lista = dao.Listagem();
-            return View(lista);
-
+            DAO = new ProfessorDAO();
+            GeraProximoId = true;
+        }
+        protected override void ValidaDados(ProfessorViewModel model, string operacao)
+        {
+            base.ValidaDados(model, operacao);
+            if (model.Nome == "")
+                ModelState.AddModelError("Nome", "Obrigatório");
         }
 
-        public IActionResult Create()
-        {
-
-            ViewBag.Operacao = "I";
-
-            try
-            {
-                ProfessorViewModel professor = new ProfessorViewModel();
-                return View("Form", professor);
-
-                ProfessorDAO dao = new ProfessorDAO();
-                professor.IdProfessor = dao.ProximoId();
-
-                return View("Form", professor);
-            }
-            catch
-            {
-                return View("Error");
-            }
-
-        }
-
-        public IActionResult Salvar(ProfessorViewModel professor, string Operacao)
-        {
-            try
-            {
-                ProfessorDAO dao = new ProfessorDAO();
-
-                if (Operacao == "I")
-                    dao.Inserir(professor);
-                else
-                    dao.Alterar(professor);
-
-                return RedirectToAction("lista");
-            }
-            catch (Exception erro)
-            {
-                return View("Error");
-
-            }
-
-        }
-        /*
-        public IActionResult SalvarUpdate(ProfessorViewModel professor)
-        {
-            try
-            {
-                ProfessorDAO dao = new ProfessorDAO();
-
-                if (dao.Consulta(professor.IdProfessor) == null)
-                    dao.Inserir(professor);
-                else
-                    dao.Alterar(professor);
-
-                return RedirectToAction("lista");
-            }
-
-            catch (Exception erro)
-            {
-                return View("erro");
-            }
-
-        }*/
-
-        public IActionResult Alterar(int id)
-        {
-            var DAO = new ProfessorDAO();
-            var professor = DAO.Consulta(id);
-            return View("Form", professor);
-        }
-
-        public IActionResult Update(ProfessorViewModel professor)
-        {
-            ViewBag.Operacao = "A";
-
-            ProfessorDAO dao = new ProfessorDAO();
-            dao.Alterar(professor);
-            return RedirectToAction("lista");
-
-        }
-        public IActionResult Delete(int id)
-        {
-            try
-            {
-                ProfessorDAO dao = new ProfessorDAO();
-                dao.Excluir(id);
-                return RedirectToAction("lista");
-            }
-            catch (Exception erro)
-            {
-                return View("error");
-            }
-
-        }
     }
 }
