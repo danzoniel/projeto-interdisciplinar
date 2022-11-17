@@ -23,6 +23,13 @@ namespace projeto_rfid
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddSession(options =>
+            {
+                options.Cookie.IsEssential = true; // GDPR mais detalhes em https://andrewlock.net/session-state-gdpr-and-non-essential-cookies/
+                options.IdleTimeout = TimeSpan.FromSeconds(1000000);
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,8 +53,10 @@ namespace projeto_rfid
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Aluno}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.UseSession();
         }
     }
 }

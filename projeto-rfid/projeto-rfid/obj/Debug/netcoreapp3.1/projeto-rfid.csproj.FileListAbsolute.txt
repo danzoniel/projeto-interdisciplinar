@@ -1558,7 +1558,6 @@ C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\De
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\projeto-rfid.dll
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\projeto-rfid.pdb
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\projeto-rfid.genruntimeconfig.cache
-C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aluno\Index.cshtml.g.cs
 C:\Users\Dan\Desktop\projeto-inter\projeto-interdisciplinar\projeto-rfid\projeto-rfid\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Dan\Desktop\projeto-inter\projeto-interdisciplinar\projeto-rfid\projeto-rfid\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Dan\Desktop\projeto-inter\projeto-interdisciplinar\projeto-rfid\projeto-rfid\bin\Debug\netcoreapp3.1\projeto-rfid.exe
@@ -2050,9 +2049,7 @@ C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\bin\De
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aluno\Form.cshtml.g.cs
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Home\Sobre.cshtml.g.cs
-C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aluno\Configuracoes.cshtml.g.cs
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\bin\Debug\netcoreapp3.1\projeto-rfid.exe
@@ -2506,3 +2503,5 @@ C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debu
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Form.cshtml.g.cs
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Index.cshtml.g.cs
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aula\Index.cshtml.g.cs
+C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Configuracoes.cshtml.g.cs
+C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
