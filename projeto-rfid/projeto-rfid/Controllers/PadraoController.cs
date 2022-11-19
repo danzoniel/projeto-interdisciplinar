@@ -50,7 +50,7 @@ namespace projeto_rfid.Controllers
         protected virtual void PreencheDadosParaView(string Operacao, T model)
         {
             if (GeraProximoId && Operacao == "I")
-                model.Id = DAO.ProximoId();
+                model.id = DAO.ProximoId();
         }
 
         public virtual IActionResult Save(T model, string Operacao)
@@ -82,11 +82,11 @@ namespace projeto_rfid.Controllers
         protected virtual void ValidaDados(T model, string operacao)
         {
             ModelState.Clear();
-            if (operacao == "I" && DAO.Consulta(model.Id) != null)
+            if (operacao == "I" && DAO.Consulta(model.id) != null)
                 ModelState.AddModelError("id", "Código já está em uso!");
-            if (operacao == "A" && DAO.Consulta(model.Id) == null)
+            if (operacao == "A" && DAO.Consulta(model.id) == null)
                 ModelState.AddModelError("id", "Este registro não existe!");
-            if (model.Id <= 0)
+            if (model.id <= 0)
                 ModelState.AddModelError("id", "id inválido!");
         }
 

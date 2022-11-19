@@ -2505,3 +2505,6 @@ C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\De
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aula\Index.cshtml.g.cs
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Configuracoes.cshtml.g.cs
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Consulta.cshtml.g.cs
+C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\pvGridProfessor.cshtml.g.cs
+C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Horario\Index.cshtml.g.cs

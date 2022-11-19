@@ -58,7 +58,7 @@ namespace projeto_rfid.Controllers
                 //na alteração, se não foi informada a imagem, iremos manter a que já estava salva.
                 if (operacao == "A" && model.Imagem == null)
                 {
-                    ProfessorViewModel cid = DAO.Consulta(model.Id);
+                    ProfessorViewModel cid = DAO.Consulta(model.id);
                     model.ImagemEmByte = cid.ImagemEmByte;
                 }
                 else
@@ -67,6 +67,21 @@ namespace projeto_rfid.Controllers
                 }
             }
         }
+
+       /* public IActionResult ExibeConsulta()
+        {
+            try
+            {
+                PreparaComboCategorias();
+                ViewBag.Categorias.Insert(0, new SelectListItem("TODAS", "0"));
+                return View("ConsultaAvancada");
+            }
+            catch (Exception erro)
+            {
+                return View("Error", new ErrorViewModel(erro.Message));
+            }
+        }*/
+
 
     }
 }

@@ -1,4 +1,16 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function aplicaFiltroConsultaAvancada() {
+    var vDescricao = document.getElementById('nome').value;
+    $.ajax({
+        url: "/jogo/ObtemDadosConsulta",
+        data: { nome: vNome },
+        success: function (dados) {
+            if (dados.erro != undefined) {
+                alert(dados.msg);
+            }
+            else {
+                document.getElementById('resultadoConsulta').innerHTML = dados;
+            }
+        },
+    });
 
-// Write your JavaScript code.
+}

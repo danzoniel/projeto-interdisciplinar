@@ -7,6 +7,6 @@ namespace projeto_rfid.Models
 {
     public abstract class PadraoViewModel
     {
-        public virtual int Id { get; set; }
+        public virtual int id { get; set; }
     }
 }

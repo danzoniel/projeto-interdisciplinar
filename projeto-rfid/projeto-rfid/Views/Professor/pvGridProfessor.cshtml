@@ -1,0 +1,17 @@
+﻿@model List<ProfessorViewModel>
+<table class="table table-striped">
+    <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Data de lançamento</th>
+        <th>Categoria</th>
+        <th>Valor</th>
+    </tr>
+    @foreach (var professor in Model)
+    {
+        <tr>
+            <td>@professor.id</td>
+            <td>@professor.Nome</td>
+        </tr>
+    }
+</table>

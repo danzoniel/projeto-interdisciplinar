@@ -8,6 +8,14 @@
     <h1 style="color: #0168B3">Lista Professores</h1>
 </div>
 
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Jogo" asp-action="ExibeConsultaAvancada">
+        Consulta
+        Avançada de Jogos
+    </a>
+</li>
+
+
 <div class="conteudo" style="display:flex; align-items:center; justify-content:center; width:100%; margin-top:10px">
     <div class="conteudo-2">
         <a href="/professor/Create">Cadastro novo Professor</a>
@@ -21,10 +29,10 @@
             {
                 <tr>
                     <td>
-                        <a href="/professor/Edit?id=@Professor.Id">Editar</a>
-                        <a href="javascript:apagarProfessor(@Professor.Id)">Excluir</a>
+                        <a href="/professor/Edit?id=@Professor.id">Editar</a>
+                        <a href="javascript:apagarProfessor(@Professor.id)">Excluir</a>
                     </td>
-                    <td>@Professor.Id</td>
+                    <td>@Professor.id</td>
                     <td>@Professor.Nome</td>
                 </tr>
             }

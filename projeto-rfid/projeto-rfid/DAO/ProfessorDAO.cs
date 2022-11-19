@@ -19,7 +19,7 @@ namespace projeto_rfid.DAO
 
             SqlParameter[] parametros = 
             {
-                 new SqlParameter("id", model.Id),
+                 new SqlParameter("id", model.id),
                  new SqlParameter("nome", model.Nome),
                  new SqlParameter("imagem", imgByte)
             };
@@ -32,7 +32,7 @@ namespace projeto_rfid.DAO
         {
             ProfessorViewModel c = new ProfessorViewModel()
             {
-                Id = Convert.ToInt32(registro["id"]),
+                id = Convert.ToInt32(registro["id"]),
                 Nome = registro["nome"].ToString()
             };
 
