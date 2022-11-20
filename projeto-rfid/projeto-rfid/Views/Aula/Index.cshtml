@@ -1,8 +1,46 @@
-﻿
+﻿@model List<AulaViewModel>
 @{
-    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<div class="titulo" style="display:flex; align-items:center; justify-content:center">
+    <h1 style="color: #0168B3">Lista Aulas</h1>
+</div>
+
+<div class="conteudo" style="display:flex; align-items:center; justify-content:center; width:100%; margin-top:10px">
+    <div class="conteudo-2">
+        <a href="/aula/Create">Cadastrar nova Aula</a>
+        <table class="table table-responsive table-hover">
+            <tr style="color: #0168B3">
+                <th>Ações</th>
+                <th>Matéria</th>
+                <th>Horário</th>
+                <th>Professor</th>
+                <th>Sala</th>
+            </tr>
+            @foreach (var aula in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="/aula/Edit?id=@aula.Id">Editar</a>
+                        <a href="javascript:apagarAula(@aula.Id)">Excluir</a>
+                    </td>                    
+                    <td>@aula.Nome_materia_fk</td>
+                    <td>@aula.Horario_aula</td>
+                    <td>@aula.Id_prof_fk</td>
+                    <td>@aula.Numero_sala_fk</td>
+                </tr>
+            }
+        </table>
+
+        <script>
+            function apagarAula(id) {
+                if (confirm('Confirma a exclusão do registro?'))
+                    location.href = '/aula/delete?id=' + id;
+            }
+        </script>
+
+    </div>
+</div>
+
 

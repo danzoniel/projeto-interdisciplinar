@@ -15,7 +15,8 @@ namespace projeto_rfid.DAO
         /// <returns>Conexão aberta</returns>
         public static  SqlConnection GetConexao()
         {
-            string strCon = @"Data Source = DAN\SQLEXPRESS; Database = AlunoDB; integrated security = true";
+            //string strCon = @"Data Source = DAN\SQLEXPRESS; Database = AlunoDB; integrated security = true";
+            string strCon = "Data Source=LOCALHOST;Initial Catalog=RFID;user id=sa; password=123456"; //BD AQUILES
             SqlConnection conexao = new SqlConnection(strCon);
             conexao.Open();
             return conexao;

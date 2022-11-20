@@ -1,0 +1,69 @@
+﻿@model AulaViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.Operacao == "I")
+{
+    <div class="titulo" style="display:flex; align-items:center; justify-content:center">
+        <h1 style="color: #0168B3">Cadastrar Aula</h1>
+    </div>
+}
+else
+{
+    <div class="titulo" style="display:flex; align-items:center; justify-content:center">
+        <h1 style="color: #0168B3">Editar Aula</h1>
+    </div>
+}
+
+
+
+<form asp-action="Save" enctype="multipart/form-data" class="form-group" style="display:flex; align-items:center; width:100%; justify-content: center">
+    <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
+    <div class="conteudo" style="width:65%">
+        <label for="id" class="control-label" style="color: #0168B3">ID</label>
+
+        @if (ViewBag.Operacao == "I")
+        {
+            <input type="number" Name="Id" value="@Model.Id" class="form-control disabled" readonly />
+            <!--<input asp-for="id" class="form-control" />-->
+        }
+        else
+        {
+            <input type="number" Name="Id" value="@Model.Id" class="form-control disabled" readonly />
+            <!--<input asp-for="Id" class="form-control" readonly />-->
+        }
+
+        <label for="Nome_materia_fk" class="control-label" style="color: #0168B3">Nome da Matéria</label>
+        <input type="text" Name="Nome_materia_fk" value="@Model.Nome_materia_fk" class="form-control" />
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Nome_materia_fk" class="text-danger"></span>
+        <br />
+
+        <label for="Id_prof_fk" class="control-label" style="color: #0168B3">ID Professor</label>
+        <input type="number" Name="Id_prof_fk" value="@Model.Id_prof_fk" class="form-control" />
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Id_prof_fk" class="text-danger"></span>
+        <br />
+
+        <label for="Numero_sala_fk" class="control-label" style="color: #0168B3">Número Sala</label>
+        <input type="number" Name="Numero_sala_fk" value="@Model.Numero_sala_fk" class="form-control" />
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Numero_sala_fk" class="text-danger"></span>
+        <br />
+
+        <label for="Horario_aula" class="control-label" style="color: #0168B3">Horário Aula</label>
+        <input type="datetime" Name="Horario_aula" value="@Model.Horario_aula" class="form-control" />
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Horario_aula" class="text-danger"></span>
+        <br />
+
+        <div class="buttons" style="display:flex; justify-content:space-between">
+            <input type="submit" value="Salvar" class="btn btn-success" style="width:100%; margin-top:1.5rem" />
+        </div>
+    </div>
+    <br />
+</form>
+
+

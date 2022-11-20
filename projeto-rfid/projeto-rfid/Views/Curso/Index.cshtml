@@ -1,0 +1,45 @@
+﻿@model List<CursoViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="titulo" style="display:flex; align-items:center; justify-content:center">
+    <h1 style="color: #0168B3">Lista Curso</h1>
+</div>
+
+<div class="conteudo" style="display:flex; align-items:center; justify-content:center; width:100%; margin-top:10px">
+    <div class="conteudo-2">
+        <a href="/curso/Create">Cadastrar novo Curso</a>
+        <table class="table table-responsive table-hover">
+            <tr style="color: #0168B3">
+                <th>Ações</th>
+                <th>Curso</th>
+                <th>Período</th>
+                <th>Semestre</th>
+            </tr>
+            @foreach (var curso in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="/curso/Edit?id=@curso.Id">Editar</a>
+                        <a href="javascript:apagarCurso(@curso.Id)">Excluir</a>
+                    </td>
+                    <td>@curso.Nome_curso</td>
+                    <td>@curso.Periodo</td>
+                    <td>@curso.Semestre</td>
+                </tr>
+            }
+        </table>
+
+        <script>
+            function apagarCurso(id) {
+                if (confirm('Confirma a exclusão do registro?'))
+                    location.href = '/Professor/delete?id=' + id;
+            }
+        </script>
+
+    </div>
+</div>
+
+

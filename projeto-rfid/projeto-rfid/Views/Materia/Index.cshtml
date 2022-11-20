@@ -1,0 +1,44 @@
+﻿@model List<MateriaViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="titulo" style="display:flex; align-items:center; justify-content:center">
+    <h1 style="color: #0168B3">Lista Matérias</h1>
+</div>
+
+<div class="conteudo" style="display:flex; align-items:center; justify-content:center; width:100%; margin-top:10px">
+    <div class="conteudo-2">
+        <a href="/materia/Create">Cadastrar nova Matéria</a>
+        <table class="table table-responsive table-hover">
+            <tr style="color: #0168B3">
+                <th>Ações</th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Professor</th>
+            </tr>
+            @foreach (var materia in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="/materia/Edit?id=@materia.Id">Editar</a>
+                        <a href="javascript:apagarMateria(@materia.Id)">Excluir</a>
+                    </td>
+                    <td>@materia.Id</td>
+                    <td>@materia.Nome</td>
+                    <td>@materia.Id_Professor</td>
+                </tr>
+            }
+        </table>
+
+        <script>
+            function apagarMateria(id) {
+                if (confirm('Confirma a exclusão do registro?'))
+                    location.href = '/materia/delete?id=' + id;
+            }
+        </script>
+
+    </div>
+</div>
+
+

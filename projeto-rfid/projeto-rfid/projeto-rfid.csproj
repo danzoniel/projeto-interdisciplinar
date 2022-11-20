@@ -7,24 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Aluno\**" />
     <Compile Remove="Views\assets\**" />
     <Compile Remove="Views\css\**" />
-    <Content Remove="Views\Aluno\**" />
     <Content Remove="Views\assets\**" />
     <Content Remove="Views\css\**" />
-    <EmbeddedResource Remove="Views\Aluno\**" />
     <EmbeddedResource Remove="Views\assets\**" />
     <EmbeddedResource Remove="Views\css\**" />
-    <None Remove="Views\Aluno\**" />
     <None Remove="Views\assets\**" />
     <None Remove="Views\css\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Controllers\AlunoController.cs" />
-    <Compile Remove="DAO\AlunoDAO.cs" />
-    <Compile Remove="Models\AlunoViewModel.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +27,19 @@
 
   <ItemGroup>
     <Folder Include="Components\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Aluno\Form.cshtml" />
+    <None Include="Views\Aluno\Index.cshtml" />
+    <None Include="Views\Login\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Aula\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

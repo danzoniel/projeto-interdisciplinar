@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+<div class="row">
+    <div class="col-">
+        <form action="/login/Fazlogin" method="post">
+            <label for="id" class="control-label">RA</label>
+            <input type="number" name="Id" class="form-control" required placeholder='RA' />
+            <label for="senha" class="control-label">Senha</label>
+            <input type="password" name="senha" class="form-control" required placeholder='Senha' />
+            <br />
+            <input type="submit" value="Login" class="btn btn-success" style="border-color: #0168D3; background-color: #0168D3" />
+            <br />
+            <span class="text-danger"> @ViewBag.Erro</span>
+        </form>
+        <br />
+        <div class="col-">
+            <form action="/aluno/Create" method="post">
+                <input type="submit" value="Cadastro" class="btn btn-success" style="border-color: #0168D3; background-color: #0168D3" />
+                <br />
+            </form>
+        </div>
+    </div>    
+</div>

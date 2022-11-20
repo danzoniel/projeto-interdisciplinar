@@ -1,0 +1,41 @@
+﻿@model List<SalaViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="titulo" style="display:flex; align-items:center; justify-content:center">
+    <h1 style="color: #0168B3">Lista Salas</h1>
+</div>
+
+<div class="conteudo" style="display:flex; align-items:center; justify-content:center; width:100%; margin-top:10px">
+    <div class="conteudo-2">
+        <a href="/sala/Create">Cadastrar novo Sala</a>
+        <table class="table table-responsive table-hover">
+            <tr style="color: #0168B3">
+                <th>Ações</th>
+                <th>Sala</th>
+            </tr>
+            @foreach (var sala in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="/sala/Edit?id=@sala.Id">Editar</a>
+                        <a href="javascript:apagarSala(@sala.Id)">Excluir</a>
+                    </td>
+                    <td>@sala.Numero_sala</td>
+                </tr>
+            }
+        </table>
+
+        <script>
+            function apagarSala(id) {
+                if (confirm('Confirma a exclusão do registro?'))
+                    location.href = '/sala/delete?id=' + id;
+            }
+        </script>
+
+    </div>
+</div>
+
+

@@ -1,0 +1,63 @@
+﻿@model CursoViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.Operacao == "I")
+{
+    <div class="titulo" style="display:flex; align-items:center; justify-content:center">
+        <h1 style="color: #0168B3">Cadastrar Curso</h1>
+    </div>
+}
+else
+{
+    <div class="titulo" style="display:flex; align-items:center; justify-content:center">
+        <h1 style="color: #0168B3">Editar Curso</h1>
+    </div>
+}
+
+
+
+<form asp-action="Save" enctype="multipart/form-data" class="form-group" style="display:flex; align-items:center; width:100%; justify-content: center">
+    <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
+    <div class="conteudo" style="width:65%">
+        <label for="id" class="control-label" style="color: #0168B3">RA</label>
+
+        @if (ViewBag.Operacao == "I")
+        {
+            <input type="number" Name="Id" value="@Model.Id" class="form-control" />
+            <!--<input asp-for="id" class="form-control" />-->
+        }
+        else
+        {
+            <input type="number" Name="Id" value="@Model.Id" class="form-control disabled" readonly />
+            <!--<input asp-for="Id" class="form-control" readonly />-->
+        }
+
+        <label for="Nome_curso" class="control-label" style="color: #0168B3">Curso</label>
+        <input type="text" Name="Nome_curso" value="@Model.Nome_curso" class="form-control" />
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Nome_curso" class="text-danger"></span>
+        <br />
+
+        <label for="Periodo" class="control-label" style="color: #0168B3">Período</label>
+        <input type="text" Name="Periodo" value="@Model.Periodo" class="form-control" />
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Periodo" class="text-danger"></span>
+        <br />
+
+        <label for="Semestre" class="control-label" style="color: #0168B3">Semestre</label>
+        <input type="number" Name="Semestre" value="@Model.Semestre" class="form-control" />
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Semestre" class="text-danger"></span>
+        <br />
+
+        <div class="buttons" style="display:flex; justify-content:space-between">
+            <input type="submit" value="Salvar" class="btn btn-success" style="width:100%; margin-top:1.5rem" />
+        </div>
+    </div>
+    <br />
+</form>
+
+
