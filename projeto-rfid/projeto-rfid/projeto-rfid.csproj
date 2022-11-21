@@ -7,12 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="NovaPasta\**" />
     <Compile Remove="Views\assets\**" />
     <Compile Remove="Views\css\**" />
+    <Content Remove="NovaPasta\**" />
     <Content Remove="Views\assets\**" />
     <Content Remove="Views\css\**" />
+    <EmbeddedResource Remove="NovaPasta\**" />
     <EmbeddedResource Remove="Views\assets\**" />
     <EmbeddedResource Remove="Views\css\**" />
+    <None Remove="NovaPasta\**" />
     <None Remove="Views\assets\**" />
     <None Remove="Views\css\**" />
   </ItemGroup>

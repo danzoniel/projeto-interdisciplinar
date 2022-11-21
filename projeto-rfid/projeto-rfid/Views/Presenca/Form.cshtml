@@ -1,4 +1,4 @@
-﻿@model AlunoViewModel
+﻿@model PresencaViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -6,25 +6,27 @@
 @if (ViewBag.Operacao == "I")
 {
     <div class="titulo" style="display:flex; align-items:center; justify-content:center">
-        <h1 style="color: #0168B3">Cadastrar Aluno</h1>
+        <h1 style="color: #0168B3">Cadastrar Presença</h1>
     </div>
 }
 else
 {
     <div class="titulo" style="display:flex; align-items:center; justify-content:center">
-        <h1 style="color: #0168B3">Editar Aluno</h1>
+        <h1 style="color: #0168B3">Editar Presença</h1>
     </div>
 }
+
+
 
 <form asp-action="Save" enctype="multipart/form-data" class="form-group" style="display:flex; align-items:center; width:100%; justify-content: center">
     <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
 
     <div class="conteudo" style="width:65%">
-        <label for="id" class="control-label" style="color: #0168B3">RA</label>
+        <label for="id" class="control-label" style="color: #0168B3">ID</label>
 
         @if (ViewBag.Operacao == "I")
         {
-            <input type="number" Name="Id" value="@Model.Id" class="form-control" />
+            <input type="number" Name="Id" value="@Model.Id" class="form-control disabled" readonly />
             <!--<input asp-for="id" class="form-control" />-->
         }
         else
@@ -33,16 +35,28 @@ else
             <!--<input asp-for="Id" class="form-control" readonly />-->
         }
 
-        <label for="Nome_aluno" class="control-label" style="color: #0168B3">Nome do Aluno</label>
-        <input type="text" Name="Nome_aluno" value="@Model.Nome_aluno" class="form-control" />
+        <label for="Id_aluno_fk" class="control-label" style="color: #0168B3">RA Aluno</label>
+        <input type="number" Name="Id_aluno_fk" value="@Model.Id_aluno_fk" class="form-control" />
         <!--<input asp-validation-for="Nome" class="form-control" />-->
-        <span asp-validation-for="Nome_aluno" class="text-danger"></span>
+        <span asp-validation-for="Id_aluno_fk" class="text-danger"></span>
+        <br />
+
+        <label for="Id_prof_fk" class="control-label" style="color: #0168B3">RA Professor</label>
+        <input type="number" Name="Id_prof_fk" value="@Model.Id_prof_fk" class="form-control" />
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Id_prof_fk" class="text-danger"></span>
         <br />
 
         <label for="Nome_curso_fk" class="control-label" style="color: #0168B3">Curso</label>
         <input type="text" Name="Nome_curso_fk" value="@Model.Nome_curso_fk" class="form-control" />
         <!--<input asp-validation-for="Nome" class="form-control" />-->
         <span asp-validation-for="Nome_curso_fk" class="text-danger"></span>
+        <br />
+
+        <label for="Nome_materia_fk" class="control-label" style="color: #0168B3">Matéria</label>
+        <input type="text" Name="Nome_materia_fk" value="@Model.Nome_materia_fk" class="form-control" />
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Nome_materia_fk" class="text-danger"></span>
         <br />
 
         <label for="Periodo_curso_fk" class="control-label" style="color: #0168B3">Período</label>
@@ -52,16 +66,21 @@ else
         <br />
 
         <label for="Semestre_curso_fk" class="control-label" style="color: #0168B3">Semestre</label>
-        <input type="text" Name="Semestre_curso_fk" value="@Model.Semestre_curso_fk" class="form-control" />
+        <input type="number" Name="Semestre_curso_fk" value="@Model.Semestre_curso_fk" class="form-control" />
         <!--<input asp-validation-for="Nome" class="form-control" />-->
         <span asp-validation-for="Semestre_curso_fk" class="text-danger"></span>
         <br />
 
-
-        <label for="Senha" class="control-label" style="color: #0168B3">Senha</label>
-        <input type="password" Name="Senha" value="@Model.Senha" class="form-control" />
+        <label for="Situacaopresenca" class="control-label" style="color: #0168B3">Situação</label>
+        <input type="text" Name="Situacaopresenca" value="@Model.Situacaopresenca" class="form-control" />
         <!--<input asp-validation-for="Nome" class="form-control" />-->
-        <span asp-validation-for="Senha" class="text-danger"></span>
+        <span asp-validation-for="Situacaopresenca" class="text-danger"></span>
+        <br />
+
+        <label for="Horario_aula" class="control-label" style="color: #0168B3">Data / Hora</label>
+        <input type="datetime-local" Name="Horario_aula" value="@Model.Horario_aula.ToString("yyyy-MM-dd HH:mm")" class="form-control"/>
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Horario_aula" class="text-danger"></span>
         <br />
 
         <div class="buttons" style="display:flex; justify-content:space-between">
@@ -70,4 +89,5 @@ else
     </div>
     <br />
 </form>
+
 

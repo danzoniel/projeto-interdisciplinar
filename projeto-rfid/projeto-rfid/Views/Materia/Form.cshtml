@@ -1,6 +1,7 @@
 ﻿@model MateriaViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    List<SelectListItem> itemsSelect = ViewBag.Tudo;
 }
 
 @if (ViewBag.Operacao == "I")
@@ -40,12 +41,9 @@ else
         <!--<input asp-validation-for="Nome" class="form-control" />-->
         <span asp-validation-for="Nome" class="text-danger"></span>
         <br />
-
-        <label for="Id_Professor" class="control-label" style="color: #0168B3">ID Professor</label>
-        <input type="text" Name="Id_Professor" value="@Model.Id_Professor" class="form-control" />
-        <!--<input asp-validation-for="Nome" class="form-control" />-->
-        <span asp-validation-for="Id_Professor" class="text-danger"></span>
-        <br />
+                
+        <select asp-for="Id_Professor"
+                asp-items="@ViewBag.Tudo"></select>
 
         <div class="buttons" style="display:flex; justify-content:space-between">
             <input type="submit" value="Salvar" class="btn btn-success" style="width:100%; margin-top:1.5rem" />

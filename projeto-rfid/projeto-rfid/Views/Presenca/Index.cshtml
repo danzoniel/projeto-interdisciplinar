@@ -1,0 +1,57 @@
+﻿@model List<PresencaViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="titulo" style="display:flex; align-items:center; justify-content:center">
+    <h1 style="color: #0168B3">Lista de Presença</h1>
+</div>
+
+<div class="conteudo" style="display:flex; align-items:center; justify-content:center; width:100%; margin-top:10px">
+    <div class="conteudo-2">
+        <a href="/presenca/Create">Cadastrar Presença</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/professor/Configuracoes">Voltar</a>
+        <table class="table table-responsive table-hover">
+            <tr style="color: #0168B3">
+                <th>Ações</th>
+                <th>Aluno</th>
+                <th>Curso</th>
+                <th>Matéria</th>
+                <th>Professor</th>
+                <th>Semestre</th>
+                <th>Situação</th>
+                <th>Período</th>
+                <th>Data / Hora</th>
+            </tr>
+            @foreach (var presenca in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="/presenca/Edit?id=@presenca.Id">Editar</a>
+                        <a href="javascript:apagarPresenca(@presenca.Id)">Excluir</a>
+                    </td>
+                    <td>@presenca.Id_aluno_fk</td>
+                    <td>@presenca.Nome_curso_fk</td>
+                    <td>@presenca.Nome_materia_fk</td>
+                    <td>@presenca.Id_prof_fk</td>
+                    <td>@presenca.Semestre_curso_fk</td>
+                    <td>@presenca.Situacaopresenca</td>                    
+                    <td>@presenca.Periodo_curso_fk</td>
+                    <td>@presenca.Horario_aula</td>
+                </tr>
+            }
+        </table>
+
+        <script>
+            function apagarPresenca(id) {
+                if (confirm('Confirma a exclusão do registro?'))
+                    location.href = '/presenca/delete?id=' + id;
+            }
+        </script>
+
+    </div>
+</div>
+
+

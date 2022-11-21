@@ -10,6 +10,8 @@
 <div class="conteudo" style="display:flex; align-items:center; justify-content:center; width:100%; margin-top:10px">
     <div class="conteudo-2">
         <a href="/aula/Create">Cadastrar nova Aula</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/professor/Configuracoes">Voltar</a>
         <table class="table table-responsive table-hover">
             <tr style="color: #0168B3">
                 <th>Ações</th>
@@ -24,7 +26,7 @@
                     <td>
                         <a href="/aula/Edit?id=@aula.Id">Editar</a>
                         <a href="javascript:apagarAula(@aula.Id)">Excluir</a>
-                    </td>                    
+                    </td>
                     <td>@aula.Nome_materia_fk</td>
                     <td>@aula.Horario_aula</td>
                     <td>@aula.Id_prof_fk</td>

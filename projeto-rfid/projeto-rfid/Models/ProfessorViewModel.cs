@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using projeto_rfid.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -33,6 +35,6 @@ namespace projeto_rfid.Models
                     return string.Empty;
             }
         }
-
+        
     }
 }

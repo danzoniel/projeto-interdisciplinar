@@ -3419,3 +3419,5 @@ D:\PROJETO\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcorea
 D:\PROJETO\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Sala\Index.cshtml.g.cs
 D:\PROJETO\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
 D:\PROJETO\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aula\Form.cshtml.g.cs
+D:\PROJETO\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Presenca\Form.cshtml.g.cs
+D:\PROJETO\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Presenca\Index.cshtml.g.cs

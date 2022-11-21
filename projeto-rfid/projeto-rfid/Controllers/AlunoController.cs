@@ -8,6 +8,8 @@ using projeto_rfid.Models;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data;
 
 namespace projeto_rfid.Controllers
 {
@@ -32,5 +34,6 @@ namespace projeto_rfid.Controllers
             if (string.IsNullOrEmpty(model.Senha))
                 ModelState.AddModelError("Senha", "Preencha a Senha!");
         }
+
     }    
 }

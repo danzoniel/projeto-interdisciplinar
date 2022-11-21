@@ -21,6 +21,7 @@ namespace projeto_rfid.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Tudo = DAO.Listagem();
             try
             {
                 var lista = DAO.Listagem();

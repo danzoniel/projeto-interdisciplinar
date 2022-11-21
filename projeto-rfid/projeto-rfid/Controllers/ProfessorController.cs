@@ -8,6 +8,7 @@ using projeto_rfid.Models;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace projeto_rfid.Controllers
 {
@@ -66,6 +67,23 @@ namespace projeto_rfid.Controllers
                     model.ImagemEmByte = ConvertImageToByte(model.Imagem);
                 }
             }
+        }
+        private void SelectProfessor()
+        {
+            var daoProfessor = new ProfessorDAO();
+            var professor = daoProfessor.Listagem();
+            var selectProf = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Selecione um Professor", Value = "0", Selected = true, Disabled = true }
+            };
+
+            foreach (var prof in professor)
+            {
+                var item = new SelectListItem { Text = prof.Nome, Value = prof.Id.ToString() };
+                selectProf.Add(item);
+            }
+
+            ViewBag.Professor = selectProf;
         }
 
     }
