@@ -17,7 +17,7 @@ namespace projeto_rfid.Controllers
         public ProfessorController()
         {
             DAO = new ProfessorDAO();
-            GeraProximoId = true;
+            GeraProximoId = false;
         }
 
         /// <summary>
