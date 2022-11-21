@@ -17,6 +17,7 @@ namespace projeto_rfid.Controllers
         protected bool GeraProximoId { get; set; }
         protected string NomeViewIndex { get; set; } = "index";
         protected string NomeViewForm { get; set; } = "form";
+        protected bool ExigeAutenticacao { get; set; } = true;
 
 
         public IActionResult Index()

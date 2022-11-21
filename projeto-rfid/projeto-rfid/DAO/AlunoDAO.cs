@@ -48,7 +48,8 @@ namespace projeto_rfid.DAO
 
             using (var conexao = new SqlConnection())
             {
-                conexao.ConnectionString = "Data Source=LOCALHOST;Initial Catalog=RFID;user id=sa; password=123456"; conexao.Open();
+                conexao.ConnectionString = @"Data Source = DAN\SQLEXPRESS; Database = AlunoDB; integrated security = true"; conexao.Open();
+                //conexao.ConnectionString = "Data Source=LOCALHOST;Initial Catalog=RFID;user id=sa; password=123456"; conexao.Open();
                 using (var comando = new SqlCommand())
                 {
                     comando.Connection = conexao;
