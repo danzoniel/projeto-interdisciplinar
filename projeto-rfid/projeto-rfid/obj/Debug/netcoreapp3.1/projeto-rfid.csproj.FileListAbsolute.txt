@@ -2483,7 +2483,6 @@ C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debu
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\projeto-rfid.TagHelpers.input.cache
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\projeto-rfid.TagHelpers.output.cache
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\projeto-rfid.RazorCoreGenerate.cache
-C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aluno\Configuracoes.cshtml.g.cs
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aluno\Form.cshtml.g.cs
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aluno\Index.cshtml.g.cs
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Home\Sobre.cshtml.g.cs
@@ -2499,7 +2498,6 @@ C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debu
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\projeto-rfid.dll
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\projeto-rfid.pdb
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\projeto-rfid.genruntimeconfig.cache
-C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Lista.cshtml.g.cs
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Form.cshtml.g.cs
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Index.cshtml.g.cs
 C:\Users\danie\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aula\Index.cshtml.g.cs
@@ -3421,3 +3419,18 @@ D:\PROJETO\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcorea
 D:\PROJETO\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aula\Form.cshtml.g.cs
 D:\PROJETO\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Presenca\Form.cshtml.g.cs
 D:\PROJETO\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Presenca\Index.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aula\Form.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Aula\Index.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Curso\Form.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Curso\Index.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Materia\Form.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Materia\Index.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Presenca\Form.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Presenca\Index.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Configuracoes.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Form.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Index.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Sala\Form.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Sala\Index.cshtml.g.cs
