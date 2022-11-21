@@ -29,8 +29,6 @@ namespace projeto_rfid.Controllers
                 ModelState.AddModelError("Nome_curso", "Preencha o nome do curso!");
             if (string.IsNullOrEmpty(model.Periodo))
                 ModelState.AddModelError("Periodo", "Preencha o Periodo!");
-            if (model.Semestre == 0)
-                ModelState.AddModelError("Semestre", "O semestre está inválido!");
         }
     }    
 }

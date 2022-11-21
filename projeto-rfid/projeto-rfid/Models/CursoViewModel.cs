@@ -10,6 +10,5 @@ namespace projeto_rfid.Models
     {
         public string Nome_curso { get; set; }
         public string Periodo { get; set; }
-        public int Semestre { get; set; }
     }
 }

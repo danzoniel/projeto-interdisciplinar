@@ -26,7 +26,7 @@ else
 
         @if (ViewBag.Operacao == "I")
         {
-            <input type="number" Name="Id" value="@Model.Id" class="form-control" />
+            <input type="number" Name="Id" value="@Model.Id" class="form-control" readonly/>
             <!--<input asp-for="id" class="form-control" />-->
         }
         else
@@ -45,12 +45,6 @@ else
         <input type="text" Name="Periodo" value="@Model.Periodo" class="form-control" />
         <!--<input asp-validation-for="Nome" class="form-control" />-->
         <span asp-validation-for="Periodo" class="text-danger"></span>
-        <br />
-
-        <label for="Semestre" class="control-label" style="color: #0168B3">Semestre</label>
-        <input type="number" Name="Semestre" value="@Model.Semestre" class="form-control" />
-        <!--<input asp-validation-for="Nome" class="form-control" />-->
-        <span asp-validation-for="Semestre" class="text-danger"></span>
         <br />
 
         <div class="buttons" style="display:flex; justify-content:space-between">

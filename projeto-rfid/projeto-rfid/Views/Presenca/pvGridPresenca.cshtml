@@ -1,0 +1,27 @@
+﻿@model List<PresencaViewModel>
+
+<table class="table table-striped">
+    <tr>
+        <th>Aluno</th>
+        <th>Curso</th>
+        <th>Matéria</th>
+        <th>Professor</th>
+        <th>Semestre</th>
+        <th>Situação</th>
+        <th>Período</th>
+        <th>Data / Hora</th>
+    </tr>
+    @foreach (var presenca in Model)
+    {
+        <tr>
+            <td>@presenca.Id_aluno_fk</td>
+            <td>@presenca.Nome_curso_fk</td>
+            <td>@presenca.Nome_materia_fk</td>
+            <td>@presenca.Nome_professor</td>
+            <td>@presenca.Semestre_curso_fk</td>
+            <td>@presenca.Situacaopresenca</td>
+            <td>@presenca.Periodo_curso_fk</td>
+            <td>@presenca.Horario_aula</td>
+        </tr>
+    }
+</table>

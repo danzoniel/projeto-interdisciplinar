@@ -22,6 +22,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Aluno\ConsultaAvancada.cshtml" />
+    <Content Remove="Views\Aluno\pvGridAlunos.cshtml" />
+    <Content Remove="Views\Presenca\ConsultaAvancada.cshtml" />
+    <Content Remove="Views\Presenca\pvGridPresenca.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.24" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
@@ -34,9 +41,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Aluno\pvGridAlunos.cshtml" />
+    <None Include="Views\Aluno\ConsultaAvancada.cshtml" />
     <None Include="Views\Aluno\Form.cshtml" />
     <None Include="Views\Aluno\Index.cshtml" />
     <None Include="Views\Login\Index.cshtml" />
+    <None Include="Views\Presenca\ConsultaAvancada.cshtml" />
+    <None Include="Views\Presenca\pvGridPresenca.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,21 @@
+﻿@model List<AlunoViewModel>
+
+<table class="table table-striped">
+    <tr>        
+        <th>RA</th>
+        <th>Nome</th>
+        <th>Curso</th>
+        <th>Período</th>
+        <th>Semestre</th>
+    </tr>
+    @foreach (var aluno in Model)
+    {
+        <tr>
+            <td>@aluno.Id</td>
+            <td>@aluno.Nome_aluno</td>
+            <td>@aluno.Nome_curso_fk</td>
+            <td>@aluno.Periodo_curso_fk</td>
+            <td>@aluno.Semestre_curso_fk</td>
+        </tr>
+    }
+</table>

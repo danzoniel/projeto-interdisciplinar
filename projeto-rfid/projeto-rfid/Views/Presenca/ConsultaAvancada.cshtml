@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<fieldset id="areaFiltro" class="form-group">
+    <legend>Consulta avançada Presença</legend>
+    <div class="row">
+        <div class="col-lg-4">
+            Curso<br />
+            <input type="text" id="nome_curso_fk" class="form-control" />
+        </div>
+        <div class="col-lg-4">
+            Semestre<br />
+            <input type="number" id="semestre_curso_fk" class="form-control" />
+        </div>
+        <div class="col-lg-2">
+            Período <br />
+            <input type="date" id="dataInicial" class="form-control" />
+        </div>
+        <div class="col-lg-2">
+            <br />
+            <input type="date" id="dataFinal" class="form-control" />
+        </div>
+        <div class="col-lg-1">
+            <br />
+            <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
+                   onclick="aplicaFiltroConsultaAvancadaPresenca()" />
+        </div>
+    </div>
+</fieldset>
+<div id="resultadoConsulta" class="table-responsive">
+</div>

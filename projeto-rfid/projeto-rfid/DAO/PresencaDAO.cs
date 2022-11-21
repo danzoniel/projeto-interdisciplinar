@@ -48,5 +48,21 @@ namespace projeto_rfid.DAO
         {
             Tabela = "presenca";
         }
+        public List<PresencaViewModel> ConsultaAvancadaPresenca(string nome_curso_fk, int semestre_curso_fk, DateTime dataInicial, DateTime dataFinal)
+        {
+            SqlParameter[] p = {
+                new SqlParameter("nome_curso_fk", nome_curso_fk),
+                new SqlParameter("semestre_curso_fk", semestre_curso_fk),
+                new SqlParameter("dataInicial", dataInicial),
+                new SqlParameter("dataFinal", dataFinal)
+            };
+
+            var tabela = HelperDAO.ExecutaProcSelect("spConsultaAvancadaPresenca", p);
+            var lista = new List<PresencaViewModel>();
+            foreach (DataRow dr in tabela.Rows)
+                lista.Add(MontaModel(dr));
+
+            return lista;
+        }
     }
 }
