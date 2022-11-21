@@ -9,17 +9,18 @@ drop table frequencia
 
 
 CREATE TABLE professor (
-id int NOT NULL PRIMARY KEY,
+id int NOT NULL,
 nome varchar(255) NOT NULL,
 imagem varbinary(max),
+PRIMARY KEY (nome)
 )
 
 Create TABLE materia (
 id int NOT NULL,
 nome varchar(255) NOT NULL,
-id_professor int NOT NULL,
+nome_professor varchar(255) NOT NULL,
 PRIMARY KEY (nome),
-FOREIGN KEY (id_professor) REFERENCES professor(id)
+FOREIGN KEY (nome_professor) REFERENCES professor (nome)
 )
 
 Create TABLE sala (
@@ -27,21 +28,16 @@ id int NOT NULL,
 numero_sala int NOT NULL  PRIMARY KEY
 )
 
-create TABLE horario (
-id int NOT NULL,
-horario_aula time NOT NULL PRIMARY KEY
-)
-
-create TABLE aula (
+CREATE TABLE aula (
 id int NOT NULL,
 horario_aula datetime NOT NULL,
 nome_materia_fk varchar(255) NOT NULL,
 numero_sala_fk int NOT NULL,
-id_prof_fk int NOT NULL,
-PRIMARY KEY (nome_materia_fk, numero_sala_fk, id_prof_fk),
+nome_professor varchar(255) NOT NULL,
+PRIMARY KEY (nome_materia_fk, numero_sala_fk, nome_professor, horario_aula),
 FOREIGN KEY (numero_sala_fk) REFERENCES sala (numero_sala),
 FOREIGN KEY (nome_materia_fk) REFERENCES materia (nome),
-FOREIGN KEY (id_prof_fk) REFERENCES professor (id)
+FOREIGN KEY (nome_professor) REFERENCES professor (nome)
 )
 
 create TABLE curso (
@@ -68,17 +64,21 @@ insert into aluno (id, nome_aluno, nome_curso_fk, periodo_curso_fk, semestre_cur
 delete from aluno
 select * from aluno
 
-create TABLE frequencia (
+CREATE TABLE presenca (
+id int NOT NULL,
 id_aluno_fk int NOT NULL,
 nome_curso_fk varchar(255) NOT NULL,
-periodo_curso_fk bit NOT NULL,
+periodo_curso_fk varchar(255) NOT NULL,
 semestre_curso_fk int NOT NULL,
 nome_materia_fk varchar(255) NOT NULL,
-id_prof_fk int NOT NULL,
-quantidade_faltas int,
+horario_aula datetime NOT NULL,
+nome_professor varchar(255) NOT NULL,
+situacaopresenca varchar(255),
 PRIMARY KEY (id_aluno_fk, nome_curso_fk, periodo_curso_fk, semestre_curso_fk),
-FOREIGN KEY (id_aluno_fk, nome_curso_fk, periodo_curso_fk, semestre_curso_fk) REFERENCES aluno (id, nome_curso_fk, periodo_curso_fk, semestre_curso_fk),
-FOREIGN KEY (nome_materia_fk, id_prof_fk) REFERENCES materia (nome, id_professor)
+FOREIGN KEY (nome_curso_fk, periodo_curso_fk, semestre_curso_fk) REFERENCES curso (nome_curso, periodo, semestre),
+FOREIGN KEY (id_aluno_fk) REFERENCES aluno (id),
+FOREIGN KEY (nome_materia_fk) REFERENCES materia (nome),
+FOREIGN KEY (nome_professor) REFERENCES professor (nome),
 )
 
 /*SP GERAL */
@@ -96,6 +96,7 @@ begin
  exec(@sql)
 end
 GO
+
 create procedure spConsulta
 (
  @id int ,
@@ -109,6 +110,7 @@ begin
  exec(@sql)
 end
 GO
+
 create procedure spListagem
 (
  @tabela varchar(max),
@@ -154,6 +156,25 @@ begin
 end
 GO
 
+create procedure spListagemProfessor
+(
+ professor varchar(max),
+ @ordem varchar(max))
+as
+begin
+ exec('select * from ' + @tabela +
+ ' order by ' + @ordem)
+end
+GO
+create procedure spProximoId
+(@tabela varchar(max))
+as
+begin
+ exec('select isnull(max(id) +1, 1) as MAIOR from '
+ +@tabela)
+end
+GO
+
 select * from professor
 
 /* SP ALUNOS */
@@ -174,7 +195,7 @@ begin
 end
 GO
 
-execute spInsert_Aluno 3,'Jake','EC',1,5,1
+execute spInsert_Aluno 2,'Jake','EC',1,5,1
 
 
 create procedure spUpdate_Aluno
@@ -204,11 +225,11 @@ create procedure spInsert_Materia
 (
  @id int,
  @nome varchar(max) ,
- @id_professor int
+ @nome_professor varchar(max)
 )
 as
 begin
- insert into materia (Id, nome, id_professor) values (@id, @nome , @id_professor)
+ insert into materia (Id, nome, nome_professor) values (@id, @nome, @nome_professor)
 end
 GO
 
@@ -216,11 +237,11 @@ create procedure spUpdate_Materia
 (
  @id int,
  @nome varchar(max) ,
- @id_professor int
+ @nome_professor varchar(max)
 )
 as
 begin
- update materia set nome = @nome , id_professor = @id_professor where Id = @id 
+ update materia set nome = @nome , nome_professor = @nome_professor where Id = @id 
 end
 GO
 
@@ -284,11 +305,11 @@ create procedure spInsert_Aula
  @horario_aula datetime,
  @nome_materia_fk varchar(255),
  @numero_sala_fk int,
- @id_prof_fk int
+ @nome_professor varchar(255)
 )
 as
 begin
- insert into aula (Id, horario_aula, nome_materia_fk, numero_sala_fk, id_prof_fk) values (@id, @horario_aula, @nome_materia_fk, @numero_sala_fk, @id_prof_fk)
+ insert into aula (Id, horario_aula, nome_materia_fk, numero_sala_fk, nome_professor) values (@id, @horario_aula, @nome_materia_fk, @numero_sala_fk, @nome_professor)
 end
 GO
 
@@ -298,11 +319,52 @@ create procedure spUpdate_Aula
  @horario_aula datetime,
  @nome_materia_fk varchar(255),
  @numero_sala_fk int,
- @id_prof_fk int
+ @nome_professor varchar(255)
 )
 as
 begin
- update aula set horario_aula = @horario_aula, nome_materia_fk = @nome_materia_fk, numero_sala_fk = @numero_sala_fk, id_prof_fk = @id_prof_fk where Id = @id 
+ update aula set horario_aula = @horario_aula, nome_materia_fk = @nome_materia_fk, numero_sala_fk = @numero_sala_fk, nome_professor = @nome_professor where Id = @id 
 end
 GO
 
+
+/* CRUD PRESENÇA */
+
+create procedure spInsert_Presenca
+(
+ @id int,
+ @id_aluno_fk int,
+ @nome_curso_fk varchar(255),
+ @periodo_curso_fk varchar(255),
+ @semestre_curso_fk int,
+ @nome_materia_fk varchar(255),
+ @horario_aula datetime,
+ @nome_professor varchar(255),
+ @situacaopresenca varchar(255)
+)
+as
+begin
+ insert into presenca (Id, id_aluno_fk, nome_curso_fk, periodo_curso_fk, semestre_curso_fk, nome_materia_fk, horario_aula, nome_professor, situacaopresenca)
+ values (@Id, @id_aluno_fk, @nome_curso_fk, @periodo_curso_fk, @semestre_curso_fk, @nome_materia_fk, @horario_aula, @nome_professor, @situacaopresenca)
+end
+GO
+
+ 
+create procedure spUpdate_Presenca
+(
+ @id int,
+ @id_aluno_fk int,
+ @nome_curso_fk varchar(255),
+ @periodo_curso_fk varchar(255),
+ @semestre_curso_fk int,
+ @nome_materia_fk varchar(255),
+ @horario_aula datetime,
+ @nome_professor varchar(255),
+ @situacaopresenca varchar(255)
+)
+as
+begin
+ update presenca set id_aluno_fk = @id_aluno_fk, nome_curso_fk = @nome_curso_fk, periodo_curso_fk = @periodo_curso_fk, semestre_curso_fk = @semestre_curso_fk, nome_materia_fk = @nome_materia_fk, 
+ horario_aula = @horario_aula, nome_professor = @nome_professor, situacaopresenca = @situacaopresenca where Id = @id 
+end
+GO

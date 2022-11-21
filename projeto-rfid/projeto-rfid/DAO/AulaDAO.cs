@@ -17,7 +17,7 @@ namespace projeto_rfid.DAO
                  new SqlParameter("id", model.Id),
                  new SqlParameter("horario_aula", model.Horario_aula),
                  new SqlParameter("nome_materia_fk", model.Nome_materia_fk),
-                 new SqlParameter("id_prof_fk", model.Id_prof_fk),
+                 new SqlParameter("nome_professor", model.Nome_professor),
                  new SqlParameter("numero_sala_fk", model.Numero_sala_fk),
             };
 
@@ -30,7 +30,7 @@ namespace projeto_rfid.DAO
                 Id = Convert.ToInt32(registro["id"]),
                 Horario_aula = Convert.ToDateTime(registro["horario_aula"]),
                 Nome_materia_fk = registro["Nome_materia_fk"].ToString(),
-                Id_prof_fk = Convert.ToInt32(registro["id_prof_fk"]),
+                Nome_professor = registro["nome_professor"].ToString(),
                 Numero_sala_fk = Convert.ToInt32(registro["numero_sala_fk"]),
             };
 

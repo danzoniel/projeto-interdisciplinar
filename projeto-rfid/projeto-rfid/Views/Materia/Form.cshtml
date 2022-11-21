@@ -41,9 +41,12 @@ else
         <!--<input asp-validation-for="Nome" class="form-control" />-->
         <span asp-validation-for="Nome" class="text-danger"></span>
         <br />
-                
-        <select asp-for="Id_Professor"
-                asp-items="@ViewBag.Tudo"></select>
+
+        <label for="Nome_professor" class="control-label" style="color: #0168B3">Professor</label>
+        <input type="text" Name="Nome_professor" value="@Model.Nome_professor" class="form-control" />
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Nome_professor" class="text-danger"></span>
+        <br />
 
         <div class="buttons" style="display:flex; justify-content:space-between">
             <input type="submit" value="Salvar" class="btn btn-success" style="width:100%; margin-top:1.5rem" />

@@ -41,10 +41,10 @@ else
         <span asp-validation-for="Id_aluno_fk" class="text-danger"></span>
         <br />
 
-        <label for="Id_prof_fk" class="control-label" style="color: #0168B3">RA Professor</label>
-        <input type="number" Name="Id_prof_fk" value="@Model.Id_prof_fk" class="form-control" />
+        <label for="Nome_professor" class="control-label" style="color: #0168B3">Professor</label>
+        <input type="text" Name="Nome_professor" value="@Model.Nome_professor" class="form-control" />
         <!--<input asp-validation-for="Nome" class="form-control" />-->
-        <span asp-validation-for="Id_prof_fk" class="text-danger"></span>
+        <span asp-validation-for="Nome_professor" class="text-danger"></span>
         <br />
 
         <label for="Nome_curso_fk" class="control-label" style="color: #0168B3">Curso</label>

@@ -16,7 +16,7 @@ namespace projeto_rfid.DAO
             {
                  new SqlParameter("id", model.Id),
                  new SqlParameter("nome", model.Nome),
-                 new SqlParameter("id_professor", model.Id_Professor)
+                 new SqlParameter("nome_professor", model.Nome_professor)
             };
 
             return parametros;
@@ -27,8 +27,8 @@ namespace projeto_rfid.DAO
             {
                 Id = Convert.ToInt32(registro["id"]),
                 Nome = registro["nome"].ToString(),
-                Id_Professor = Convert.ToInt32(registro["id_professor"]),
-                
+                Nome_professor = registro["nome_professor"].ToString(),
+
             };
 
             return c;

@@ -33,8 +33,8 @@ namespace projeto_rfid.Controllers
                 ModelState.AddModelError("Periodo_curso_fk", "Preencha o período!");
             if (model.Id_aluno_fk == 0)
                 ModelState.AddModelError("Id_aluno_fk", "Preencha o RA do aluno!");
-            if (model.Id_prof_fk == 0)
-                ModelState.AddModelError("Id_prof_fk", "Preencha o RA do professor!");
+            if (string.IsNullOrEmpty(model.Nome_professor))
+                ModelState.AddModelError("nome_professor", "Preencha o Nome do professor!");
             if (model.Semestre_curso_fk == 0)
                 ModelState.AddModelError("Semestre_curso_fk", "Preencha o semestre!");
             if (model.Horario_aula > DateTime.Now)

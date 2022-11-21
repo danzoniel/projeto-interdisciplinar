@@ -27,8 +27,8 @@ namespace projeto_rfid.Controllers
             base.ValidaDados(model, operacao);
             if (string.IsNullOrEmpty(model.Nome))
                 ModelState.AddModelError("Nome", "Preencha o nome!");
-            if (model.Id_Professor == 0)
-                ModelState.AddModelError("Id_Professor", "Preencha o RA do Professor!");
+            if (string.IsNullOrEmpty(model.Nome_professor))
+                ModelState.AddModelError("nome_professor", "Preencha o nome do Professor!");
         }
     }
 }

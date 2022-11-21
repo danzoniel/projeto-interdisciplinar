@@ -41,10 +41,10 @@ else
         <span asp-validation-for="Nome_materia_fk" class="text-danger"></span>
         <br />
 
-        <label for="Id_prof_fk" class="control-label" style="color: #0168B3">ID Professor</label>
-        <input type="number" Name="Id_prof_fk" value="@Model.Id_prof_fk" class="form-control" />
+        <label for="Nome_professor" class="control-label" style="color: #0168B3">Professor</label>
+        <input type="text" Name="Nome_professor" value="@Model.Nome_professor" class="form-control" />
         <!--<input asp-validation-for="Nome" class="form-control" />-->
-        <span asp-validation-for="Id_prof_fk" class="text-danger"></span>
+        <span asp-validation-for="Nome_professor" class="text-danger"></span>
         <br />
 
         <label for="Numero_sala_fk" class="control-label" style="color: #0168B3">Número Sala</label>
@@ -54,7 +54,7 @@ else
         <br />
 
         <label for="Horario_aula" class="control-label" style="color: #0168B3">Horário Aula</label>
-        <input type="datetime" Name="Horario_aula" value="@Model.Horario_aula" class="form-control" />
+        <input type="datetime-local" Name="Horario_aula" value="@Model.Horario_aula.ToString("yyyy-MM-dd HH:mm")" class="form-control" />
         <!--<input asp-validation-for="Nome" class="form-control" />-->
         <span asp-validation-for="Horario_aula" class="text-danger"></span>
         <br />

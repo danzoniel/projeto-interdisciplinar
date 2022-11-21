@@ -25,10 +25,10 @@ namespace projeto_rfid.Controllers
         protected override void ValidaDados(AulaViewModel model, string operacao)
         {
             base.ValidaDados(model, operacao);
-            if(string.IsNullOrEmpty(model.Nome_materia_fk))
+            if (string.IsNullOrEmpty(model.Nome_materia_fk))
                 ModelState.AddModelError("Nome_materia_fk", "Preencha o nome da matéria!");
-            if (model.Id_prof_fk == 0)
-                ModelState.AddModelError("Id_prof_fk", "Professor Inválido!");
+            if (string.IsNullOrEmpty(model.Nome_professor))
+                ModelState.AddModelError("nome_professor", "Professor Inválido!");
             if (model.Numero_sala_fk == 0)
                 ModelState.AddModelError("Numero_sala_fk", "Sala Inválida!");
         }
