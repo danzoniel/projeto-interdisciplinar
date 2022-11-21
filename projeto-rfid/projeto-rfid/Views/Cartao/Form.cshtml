@@ -1,0 +1,68 @@
+﻿@model CartaoViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.Operacao == "I")
+{
+    <div class="titulo" style="display:flex; align-items:center; justify-content:center">
+        <h1 style="color: #0168B3">Registrar Cartão</h1>
+    </div>
+}
+else
+{
+    <div class="titulo" style="display:flex; align-items:center; justify-content:center">
+        <h1 style="color: #0168B3">Editar Cartão</h1>
+    </div>
+}
+
+
+
+<form asp-action="Save" enctype="multipart/form-data" class="form-group" style="display:flex; align-items:center; width:100%; justify-content: center">
+    <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
+    <div class="conteudo" style="width:65%">
+        <label for="id" class="control-label" style="color: #0168B3">RE</label>
+
+        @if (ViewBag.Operacao == "I")
+        {
+            <input type="number" Name="id" value="@Model.Id" class="form-control" />
+            <!--<input asp-for="id" class="form-control" />-->
+        }
+        else
+        {
+            <!--<input type="number" Name="id" value="@Model.Id" class="form-control disabled" readonly />-->
+            <input asp-for="Id" class="form-control" readonly />
+        }
+        <span asp-validation-for="Id" class="text-danger"></span>
+        <br />
+
+        <label for="codigo_cartao" class="control-label" style="color: #0168B3">Código do Cartão</label>
+        <input type="text" Name="codigo_cartao" value="@Model.Codigo_Cartao" class="form-control" />
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Codigo_Cartao" class="text-danger"></span>
+        <br />
+
+        <label for="id_aluno_fk" class="control-label" style="color: #0168B3">RA</label>
+        <input type="text" Name="id_aluno_fk" value="@Model.Id_aluno_fk" class="form-control" />
+        <!--<input asp-validation-for="Nome" class="form-control" />-->
+        <span asp-validation-for="Id_aluno_fk" class="text-danger"></span>
+        <br />
+
+        <div class="buttons" style="display:flex; justify-content:space-between">
+            <input type="submit" value="Salvar" class="btn btn-success" style="width:100%; margin-top:1.5rem" />
+        </div>
+    </div>
+    <br />
+</form>
+
+<script>
+    function exibirImagem() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("Imagem").files[0]);
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("imgPreview").src = oFREvent.target.result;
+        };
+    }
+</script>
+

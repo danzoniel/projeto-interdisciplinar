@@ -1,0 +1,47 @@
+﻿@model List<CartaoViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="titulo" style="display:flex; align-items:center; justify-content:center">
+    <h1 style="color: #0168B3">Lista Cartões</h1>
+</div>
+
+<div class="conteudo" style="display:flex; align-items:center; justify-content:center; width:100%; margin-top:10px">
+    <div class="conteudo-2">
+        <a href="/cartao/Create">Registrar novo cartão</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/professor/Configuracoes">Voltar</a>
+        <table class="table table-responsive table-hover">
+            <tr style="color: #0168B3">
+                <th>Ações</th>
+                <th>ID</th>
+                <th>Codigo do Cartão</th>
+                <th>RA</th>
+            </tr>
+            @foreach (var cartao in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="/cartao/Edit?id=@cartao.Id">Editar</a>
+                        <a href="javascript:apagarCartao(@cartao.Id)">Excluir</a>
+                    </td>
+                    <td>@cartao.Id</td>
+                    <td>@cartao.Codigo_Cartao</td>
+                    <td>@cartao.Id_aluno_fk</td>
+                </tr>
+            }
+        </table>
+
+        <script>
+            function apagarCartao(id) {
+                if (confirm('Confirma a exclusão do registro?'))
+                    location.href = '/Professor/delete?id=' + id;
+            }
+        </script>
+
+    </div>
+</div>
+
+

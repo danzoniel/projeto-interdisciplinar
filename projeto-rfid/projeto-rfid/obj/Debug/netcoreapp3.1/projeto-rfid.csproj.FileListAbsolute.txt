@@ -3434,3 +3434,5 @@ C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debu
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Professor\Index.cshtml.g.cs
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Sala\Form.cshtml.g.cs
 C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Sala\Index.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Cartao\Index.cshtml.g.cs
+C:\Users\Dan\Desktop\projeto-interdisciplinar\projeto-rfid\projeto-rfid\obj\Debug\netcoreapp3.1\Razor\Views\Cartao\Form.cshtml.g.cs
