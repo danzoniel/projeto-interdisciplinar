@@ -1,11 +1,78 @@
-﻿
-@{
-    ViewData["Title"] = "Sobre";
-
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="bg-light py-0">
+    <div class="container-fluid py-5">
+        <div class="row mb-4">
+            <div class="col-lg-5 ml-5">
+                <div class="titulo" style="display:flex; align-items:center; justify-content:center">
+                    <h1 style="color: #0168B3">Quem Somos</h1>
+                </div>
+            </div>
+        </div>
 
-<div class="titulo" style="display:flex; align-items:center; justify-content:center">
-    <h1 style="color: #0168B3">Sobre Nós</h1>
+        <div class="row text-center mx-auto justify-content-center">
+
+            <div class="col-xl-2 col-sm-6 mb-5">
+                <div style="color: #0168B3" class="bg-white rounded shadow-sm py-5 px-4">
+                    <h5 class="mb-0">Aquiles Vinícius</h5><span class="small text-uppercase text-muted">082200005</span>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-sm-6 mb-5">
+                <div style="color: #0168B3" class="bg-white rounded shadow-sm py-5 px-4">                    
+                    <h5 class="mb-0">Daniel Souza</h5><span class="small text-uppercase text-muted">082200031</span>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-sm-6 mb-5">
+                <div style="color: #0168B3" class="bg-white rounded shadow-sm py-5 px-4">
+                    <h5 class="mb-0">Eduardo Gomes</h5><span class="small text-uppercase text-muted">082200001</span>
+                </div>
+            </div>
+
+            <div class="col-xl-2 col-sm-6 mb-5">
+                <div style="color: #0168B3" class="bg-white rounded shadow-sm py-5 px-4">
+                    <h5 class="mb-0">Catarina Lacerda</h5><span class="small text-uppercase ">08220000?</span>
+                </div>
+            </div>           
+
+            <div class="col-xl-2 col-sm-6 mb-5">
+                <div style="color: #0168B3" class="bg-white rounded shadow-sm py-5 px-4">
+                    <h5 class="mb-0">Milena Moraes</h5><span class="small text-uppercase text-muted">08220001?</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 
+<div class="container">
+    <div class="conteudo">
+        <div class="esquerda">
+            <div class="titulo" style="display:flex; align-items:center; justify-content:center">
+                <h1 style="color: #0168B3">Sobre o Projeto</h1>
+            </div>
+            <div class="texto">
+                <p class="textoTamanho">
+                    <br />
+                    <br />
+                    Sistema de chamado para a Faculdade Engenheiro Salvador Arena de forma automática com o auxílio de um protótpo em RFID.<br />
+                    A chamada é computada no instante que o aluno aproxima sua carteirinha no componente na entrada da sala, as informações de data, horário, curso, sala, entre outros, são enviados e computados diretamente no site.<br />
+                    Apenas o funcionário com o acesso de Administrador consegue aterar e criar novas listas de presença, matéria, cursos, professores e horários.<br />
+                    Este modelo visa melhorar a forma que o controle de presença é feita na sala de aula, tornando-a simples e ainda mais eficaz!<br />
+                </p>
+            </div>
+
+        </div>
+        <div class="direito">
+            <div>
+                <img class="imagemTamanho float-left mb-2" src="/Imagens/logoFESA.jpg" />
+            </div>
+        </div>
+        
+    </div>
+
+
+</div>
 
