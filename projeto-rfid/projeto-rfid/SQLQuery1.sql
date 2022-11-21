@@ -1,3 +1,4 @@
+/*
 drop table professor
 drop table materia
 drop table sala
@@ -44,11 +45,10 @@ create TABLE curso (
 id int NOT NULL,
 nome_curso varchar(255) NOT NULL,
 periodo varchar(255) NOT NULL,
-semestre int NOT NULL,
- PRIMARY KEY (nome_curso, periodo, semestre)
+ PRIMARY KEY (nome_curso, periodo)
 )
 select * from curso
-insert into curso (id, nome_curso, periodo, semestre) values (1, 'EC', 'Noturno', 5)
+insert into curso (id, nome_curso, periodo) values (1, 'EC', 'Noturno')
 
 create TABLE aluno (
 id int NOT NULL,
@@ -58,13 +58,13 @@ periodo_curso_fk varchar(255) NOT NULL, --Noturno ou matutino
 semestre_curso_fk int NOT NULL,
 senha varchar(255) NOT NULL,
 PRIMARY KEY (id),
-FOREIGN KEY (nome_curso_fk, periodo_curso_fk, semestre_curso_fk) REFERENCES curso (nome_curso, periodo, semestre)
+FOREIGN KEY (nome_curso_fk, periodo_curso_fk) REFERENCES curso (nome_curso, periodo)
 )
 insert into aluno (id, nome_aluno, nome_curso_fk, periodo_curso_fk, semestre_curso_fk,senha) values (1, 'Aquiles', 'EC', 'Noturno', 5, 'jakE')
 delete from aluno
 select * from aluno
 
-CREATE TABLE presenca (
+create TABLE presenca (
 id int NOT NULL,
 id_aluno_fk int NOT NULL,
 nome_curso_fk varchar(255) NOT NULL,
@@ -75,7 +75,7 @@ horario_aula datetime NOT NULL,
 nome_professor varchar(255) NOT NULL,
 situacaopresenca varchar(255),
 PRIMARY KEY (id_aluno_fk, nome_curso_fk, periodo_curso_fk, semestre_curso_fk),
-FOREIGN KEY (nome_curso_fk, periodo_curso_fk, semestre_curso_fk) REFERENCES curso (nome_curso, periodo, semestre),
+FOREIGN KEY (nome_curso_fk, periodo_curso_fk) REFERENCES curso (nome_curso, periodo),
 FOREIGN KEY (id_aluno_fk) REFERENCES aluno (id),
 FOREIGN KEY (nome_materia_fk) REFERENCES materia (nome),
 FOREIGN KEY (nome_professor) REFERENCES professor (nome),
@@ -251,12 +251,11 @@ create procedure spInsert_Curso
 (
  @id int,
  @nome_curso varchar(max),
- @periodo varchar(max),
- @semestre int
+ @periodo varchar(max)
 )
 as
 begin
- insert into curso (Id, nome_curso, periodo, semestre) values (@id, @nome_curso , @periodo, @semestre)
+ insert into curso (Id, nome_curso, periodo) values (@id, @nome_curso , @periodo)
 end
 GO
 
@@ -264,12 +263,11 @@ create procedure spUpdate_Curso
 (
  @id int,
  @nome_curso varchar(max),
- @periodo varchar(max),
- @semestre int
+ @periodo varchar(max)
 )
 as
 begin
- update curso set nome_curso = @nome_curso, periodo = @periodo, semestre = @semestre where Id = @id 
+ update curso set nome_curso = @nome_curso, periodo = @periodo where Id = @id 
 end
 GO
 
@@ -368,3 +366,41 @@ begin
  horario_aula = @horario_aula, nome_professor = @nome_professor, situacaopresenca = @situacaopresenca where Id = @id 
 end
 GO
+
+/* FILTRO AVANÇADO ALUNO */
+
+Create procedure spConsultaAvancadaAlunos
+(
+@nome_curso_fk varchar(max),
+@periodo_curso_fk varchar(max))
+as
+begin
+
+select * from aluno
+where aluno.nome_curso_fk like '%' + @nome_curso_fk + '%' and
+	aluno.periodo_curso_fk like '%' + @periodo_curso_fk + '%'
+end
+
+
+/* FILTRO AVANÇADO PRESENÇA */
+
+Create procedure spConsultaAvancadaPresenca
+(
+@nome_curso_fk varchar(max),
+@semestre_curso_fk int,
+@dataInicial datetime,
+@dataFinal datetime)
+as
+begin
+		declare @categIni int
+		declare @categFim int
+
+		set @categIni = case @semestre_curso_fk when 0 then 0 else @semestre_curso_fk end
+		set @categFim = case @semestre_curso_fk when 0 then 999999 else @semestre_curso_fk end
+
+select * from presenca
+where presenca.nome_curso_fk like '%' + @nome_curso_fk + '%' and
+	presenca.semestre_curso_fk between @categIni and @categFim and
+	presenca.horario_aula between @dataInicial and @dataFinal
+end
+

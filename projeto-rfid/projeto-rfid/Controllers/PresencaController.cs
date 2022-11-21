@@ -8,6 +8,8 @@ using projeto_rfid.Models;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data.SqlTypes;
 
 namespace projeto_rfid.Controllers
 {
@@ -39,6 +41,50 @@ namespace projeto_rfid.Controllers
                 ModelState.AddModelError("Semestre_curso_fk", "Preencha o semestre!");
             if (model.Horario_aula > DateTime.Now)
                 ModelState.AddModelError("Horario_aula", "Data Inválida");
+        }
+        private void PreparaComboCategorias()
+        {
+            List<SelectListItem> lista = new List<SelectListItem>();
+            PresencaDAO dao = new PresencaDAO();
+            foreach (var c in dao.Listagem())
+                lista.Add(
+                    new SelectListItem(c.Nome_curso_fk, c.Semestre_curso_fk.ToString()));
+
+            ViewBag.Categorias = lista;
+        }
+        public IActionResult ExibeConsultaAvancada()
+        {
+            try
+            {
+                PreparaComboCategorias();
+                ViewBag.Categorias.Insert(0, new SelectListItem("TODAS", "0"));
+                return View("ConsultaAvancada");
+            }
+            catch (Exception erro)
+            {
+                return View("Error", new ErrorViewModel(erro.Message));
+            }
+        }
+        public IActionResult ObtemDadosConsultaAvancada(string nome_curso_fk, int semestre_curso_fk, DateTime dataInicial, DateTime dataFinal)
+        {
+            try
+            {
+                PresencaDAO dao = new PresencaDAO();
+                if (string.IsNullOrEmpty(nome_curso_fk))
+                    nome_curso_fk = "";
+                if (dataInicial.Date == Convert.ToDateTime("01/01/0001"))
+                    dataInicial = SqlDateTime.MinValue.Value;
+                if (dataFinal.Date == Convert.ToDateTime("01/01/0001"))
+                    dataFinal = SqlDateTime.MaxValue.Value;
+
+
+                var lista = dao.ConsultaAvancadaPresenca(nome_curso_fk, semestre_curso_fk, dataInicial, dataFinal);
+                return PartialView("pvGridPresenca", lista);
+            }
+            catch (Exception erro)
+            {
+                return Json(new { erro = true, msg = erro.Message });
+            }
         }
     }
 }

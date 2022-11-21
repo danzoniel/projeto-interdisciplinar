@@ -13,6 +13,13 @@
         <a href="/presenca/Create">Cadastrar Presença</a>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <a href="/professor/Configuracoes">Voltar</a>
+        <ul>
+            <li style="list-style-type: none" class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Presenca" asp-action="ExibeConsultaAvancada">
+                    Consulta Avançada de Presença
+                </a>
+            </li>
+        </ul>
         <table class="table table-responsive table-hover">
             <tr style="color: #0168B3">
                 <th>Ações</th>
@@ -37,7 +44,7 @@
                     <td>@presenca.Nome_materia_fk</td>
                     <td>@presenca.Nome_professor</td>
                     <td>@presenca.Semestre_curso_fk</td>
-                    <td>@presenca.Situacaopresenca</td>                    
+                    <td>@presenca.Situacaopresenca</td>
                     <td>@presenca.Periodo_curso_fk</td>
                     <td>@presenca.Horario_aula</td>
                 </tr>

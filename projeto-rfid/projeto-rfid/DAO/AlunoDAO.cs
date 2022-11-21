@@ -59,6 +59,20 @@ namespace projeto_rfid.DAO
             }
 
             return ret;
-        }        
+        }
+        public List<AlunoViewModel> ConsultaAvancadaAluno(string nome_curso_fk, string periodo_curso_fk)
+        {
+            SqlParameter[] p = {
+                new SqlParameter("nome_curso_fk", nome_curso_fk),
+                new SqlParameter("periodo_curso_fk", periodo_curso_fk)
+            };
+
+            var tabela = HelperDAO.ExecutaProcSelect("spConsultaAvancadaAlunos", p);
+            var lista = new List<AlunoViewModel>();
+            foreach (DataRow dr in tabela.Rows)
+                lista.Add(MontaModel(dr));
+
+            return lista;
+        }
     }
 }
