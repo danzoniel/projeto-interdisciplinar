@@ -18,10 +18,6 @@ namespace projeto_rfid.Controllers
             DAO = new CursoDAO();
             GeraProximoId = true;
         }
-        public IActionResult Configuracoes()
-        {
-            return View();
-        }
         protected override void ValidaDados(CursoViewModel model, string operacao)
         {
             base.ValidaDados(model, operacao);

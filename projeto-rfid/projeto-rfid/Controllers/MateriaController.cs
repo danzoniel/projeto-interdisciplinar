@@ -18,10 +18,6 @@ namespace projeto_rfid.Controllers
             DAO = new MateriaDAO();
             GeraProximoId = true;
         }
-        public IActionResult Configuracoes()
-        {
-            return View();
-        }
         protected override void ValidaDados(MateriaViewModel model, string operacao)
         {
             base.ValidaDados(model, operacao);
