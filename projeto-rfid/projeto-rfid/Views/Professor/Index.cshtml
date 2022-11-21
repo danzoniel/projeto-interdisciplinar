@@ -16,6 +16,7 @@
         <table class="table table-responsive table-hover">
             <tr style="color: #0168B3">
                 <th>Ações</th>
+                <th>Foto</th>
                 <th>RE</th>
                 <th>Nome</th>
             </tr>
@@ -26,6 +27,7 @@
                         <a href="/professor/Edit?id=@Professor.Id">Editar</a>
                         <a href="javascript:apagarProfessor(@Professor.Id)">Excluir</a>
                     </td>
+                    <td> <img class="imagem-vitrine" onchange="exibirImagem()" src="data:image/jpeg;base64;@Professor.ImagemEmBase64" height="42" width="42" /></td>
                     <td>@Professor.Id</td>
                     <td>@Professor.Nome</td>
                 </tr>
@@ -43,3 +45,12 @@
 </div>
 
 
+<script>
+    function exibirImagem() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("Imagem").files[0]);
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("imgPreview").src = oFREvent.target.result;
+        };
+    }
+</script>
