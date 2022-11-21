@@ -30,13 +30,22 @@
                             <li class="nav-item">
                                 <a href="/home/Sobre" class="nav-link text-white">SOBRE NÓS</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a href="/dashboard/Index" class="nav-link text-white">DASHBOARDS</a>
-                            </li>
+
                             <!-- Trigger the modal with a button -->
                             <li class="nav-item">
                                 <a href="" type="button" class="nav-link text-white" data-toggle="modal" data-target="#loginModal">ENTRAR</a>
                             </li>
+
+                            @if (ViewBag.LogadoAluno == true)
+                            {
+                                <li class="nav-item">
+                                    <a href="../professor/Configuracoes" class="nav-link text-white">CONFIGURAÇÕES</a>
+                                </li>
+                            }
+                            <li class="nav-item">
+                                <a href="/home/index" type="button" class="nav-link text-white">SAIR</a>
+                            </li>
+
                         </ul>
                     </div>
 
@@ -61,23 +70,24 @@
                             <img id="logoLogin" style="display: flex; width: 100%; align-items: center; justify-content: center;" src="https://aluno.cefsa.edu.br/Content/images/logotipos/cefsa.png" class="img-responsive" alt="">
                         </div>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" style="background-color: #4158B6">
 
-                        <form asp-action="Save" enctype="multipart/form-data" class="form-group" style="display:flex; align-items:center; width:100%; justify-content: center">
+                        <form action="/login/Fazlogin"  method="post" enctype="multipart/form-data" class="form-group" style="display:flex; align-items:center; width:100%; justify-content: center">
                             <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
-                            <div class="conteudo"  style="padding:20px; width:100%">
+                            <div class="conteudo" style="padding:20px; width:100%">
                                 <input placeholder="RA" type="number" Name="id" value="" class="form-control" style="border-radius:14px" />
                                 <!--<input asp-for="id" class="form-control" />-->
                                 <span class="text-danger"></span>
                                 <br />
-                                <input placeholder="Senha" type="password" Name="Nome" value="" class="form-control" style="border-radius:14px" />
+                                <input placeholder="Senha" name="senha" type="password" Name="Nome" value="" class="form-control" style="border-radius:14px" />
                                 <!--<input asp-validation-for="Nome" class="form-control" />-->
                                 <span class="text-danger"></span>
                                 <br />
-
                                 <div class="modal-footerX">
                                     <input type="submit" value="Entrar" class="btn btn-success" style="width: 100%; margin-top: 1.5rem; border-radius: 14px" />
-                                    <a href="aluno/create">Cadastrar uma conta</a>
+                                    <a href="aluno/Create" style="color:white"><u>Cadastrar uma conta</u></a>
+                                    <br />
+                                    <span class="text-danger"> @ViewBag.Erro</span>
                                 </div>
                             </div>
                             <br />
