@@ -10,16 +10,14 @@
 
 <div class="conteudo" style="display:flex; align-items:center; justify-content:center; width:100%; margin-top:10px">
     <div class="conteudo-2">
-        <a href="/presenca/Create">Cadastrar Presença</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="/professor/Configuracoes">Voltar</a>
-        <ul>
-            <li style="list-style-type: none" class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Presenca" asp-action="ExibeConsultaAvancada">
-                    Consulta Avançada de Presença
-                </a>
-            </li>
-        </ul>
+        <div class="cabecalho" style="display:flex; justify-content:space-around; align-items:center">
+            <a href="/aluno/Create">Cadastro novo Aluno</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="nav-link" asp-area="" asp-controller="Aluno" asp-action="ExibeConsultaAvancada">
+                Consulta Avançada de Alunos
+            </a>
+            <a href="/professor/Configuracoes">Voltar</a>
+        </div>
         <table class="table table-responsive table-hover">
             <tr style="color: #0168B3">
                 <th>Ações</th>

@@ -44,11 +44,12 @@ namespace projeto_rfid.Controllers
                 ViewBag.LogadoAluno = true;
                 return RedirectToAction("Configuracoes", "Professor");
             }
-            ViewBag.LogadoAluno = true;
+
             var achou = AlunoDAO.ValidarLogin(aluno.Id, aluno.Senha);
 
             if (achou == true)
             {
+                ViewBag.LogadoAluno = true;
                 HttpContext.Session.SetString("Logado", "true");
                 return RedirectToAction("index", "Aluno");
             }
