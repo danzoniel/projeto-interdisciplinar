@@ -16,7 +16,7 @@ namespace projeto_rfid.Controllers
         protected string NomeViewForm { get; set; } = "form";
         protected bool ExigeAutenticacao { get; set; } = true;
 
-        /*public override void OnActionExecuting(ActionExecutingContext context)
+        public override void OnActionExecuting(ActionExecutingContext context)
         {
             if (ExigeAutenticacao && !HelperController.VerificaAlunoLogado(HttpContext.Session))
                 context.Result = RedirectToAction("Index", "Home");
@@ -26,7 +26,7 @@ namespace projeto_rfid.Controllers
                     ViewBag.LogadoAluno = true;
                 base.OnActionExecuting(context);
             }
-        }*/
+        }
 
         public IActionResult Index()
         {

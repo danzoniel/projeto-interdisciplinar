@@ -29,15 +29,16 @@ namespace projeto_rfid.Controllers
         {
             try
             {
-                if (DAO.Consulta(Convert.ToInt32(model.Id)) == null)
-                {
-                    TempData["LoginMessage"] = "Usuário ou senha inválidos!";
-                    return RedirectToAction("index", "Home");
-                }
 
                 if (model.SenhaHash == "Admin123" && model.Id == 0822000059)
                 {
-                    HttpContext.Session.SetString("Logado", "true");
+                    HttpContext.Session.SetString("LogadoAluno", "true");
+                    return RedirectToAction("index", "Home");
+                }
+
+                if (DAO.Consulta(Convert.ToInt32(model.Id)) == null)
+                {
+                    TempData["LoginMessage"] = "Usuário ou senha inválidos!";
                     return RedirectToAction("index", "Home");
                 }
 

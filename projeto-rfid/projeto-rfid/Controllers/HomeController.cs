@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using projeto_rfid.Models;
+using projeto_rfid.DAO;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,8 +20,13 @@ namespace projeto_rfid.Controllers
             _logger = logger;
         }
 
+        //MongoDAO dao = new MongoDAO();
+    
         public IActionResult Index()
         {
+
+            //dao.Inserir(mongo);
+
             try
             {
                 if (HelperController.VerificaAlunoLogado(HttpContext.Session))

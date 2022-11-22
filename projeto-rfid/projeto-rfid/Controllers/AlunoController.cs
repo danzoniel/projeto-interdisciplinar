@@ -1,15 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using projeto_rfid.DAO;
 using projeto_rfid.Models;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Http;
-using System.IO;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using projeto_rfid.Helpers;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
+using BC = BCrypt.Net.BCrypt;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace projeto_rfid.Controllers
 {
@@ -75,6 +77,48 @@ namespace projeto_rfid.Controllers
                 return Json(new { erro = true, msg = erro.Message });
             }
         }
-        
+
+        public override IActionResult Save(AlunoViewModel model, string Operacao)
+        {
+            try
+            {
+                ValidaDados(model, Operacao);
+                if (ModelState.IsValid == false)
+                {
+                    ViewBag.Operacao = Operacao;
+                    PreencheDadosParaView(Operacao, model);
+                    return View(NomeViewForm, model);
+                }
+                else
+                {
+                    if (Operacao == "I")
+                    {
+                        AlunoDAO novoAlunoDAO = new AlunoDAO();
+                        DAO.Insert(model);
+                        LoginViewModel modelLogin = new LoginViewModel()
+                        {
+                            Id = model.Id,
+                            SenhaHash = PasswordHasher.Encrypt("0001")
+                        };
+                        LoginDAO login = new LoginDAO();
+                        login.Insert(modelLogin);
+                        TempData["AlertMessage"] = "Dado salvo com sucesso...! ";
+                       
+                        return RedirectToAction("Create");
+                    }
+                    else
+                    {
+                        DAO.Update(model);
+                        return RedirectToAction("Home", "Index");
+                    }
+
+                }
+            }
+            catch (Exception erro)
+            {
+                return View("Error", new ErrorViewModel(erro.ToString()));
+            }
+        }
+
     }    
 }
