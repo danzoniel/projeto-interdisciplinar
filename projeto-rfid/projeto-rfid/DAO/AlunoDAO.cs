@@ -33,7 +33,7 @@ namespace projeto_rfid.DAO
                 Nome_curso_fk = registro["nome_curso_fk"].ToString(),
                 Periodo_curso_fk = registro["Periodo_curso_fk"].ToString(),
                 Semestre_curso_fk = Convert.ToInt32(registro["semestre_curso_fk"]),
-                Senha = registro["senha"].ToString()
+                //Senha = registro["senha"].ToString()
             };
             return c;
         }

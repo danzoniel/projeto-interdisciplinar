@@ -101,8 +101,13 @@ FOREIGN KEY (nome_professor) REFERENCES professor (nome),
 create table Login (
 Id int not null PRIMARY KEY,
 SenhaHash varchar(255) 
+FOREIGN KEY (Id) REFERENCES aluno (Id)
 )
 
+drop table Login
+select * from aluno 
+
+drop table aluno
 
 /*SP GERAL */
 
@@ -122,8 +127,8 @@ GO
 
 create procedure spConsulta
 (
- @id int = 082200059,
- @tabela varchar(max) = 'login'
+ @id int,
+ @tabela varchar(max)
 )
 as
 begin
