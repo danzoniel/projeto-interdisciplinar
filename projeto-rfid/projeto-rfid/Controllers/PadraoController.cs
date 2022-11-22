@@ -1,13 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using projeto_rfid.DAO;
 using projeto_rfid.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
-
+using Microsoft.AspNetCore.Mvc.Filters;
+using projeto_rfid.Helpers;
 
 namespace projeto_rfid.Controllers
 {
@@ -19,6 +16,17 @@ namespace projeto_rfid.Controllers
         protected string NomeViewForm { get; set; } = "form";
         protected bool ExigeAutenticacao { get; set; } = true;
 
+        /*public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            if (ExigeAutenticacao && !HelperController.VerificaAlunoLogado(HttpContext.Session))
+                context.Result = RedirectToAction("Index", "Home");
+            else
+            {
+                if (HelperController.VerificaAlunoLogado(HttpContext.Session))
+                    ViewBag.LogadoAluno = true;
+                base.OnActionExecuting(context);
+            }
+        }*/
 
         public IActionResult Index()
         {
