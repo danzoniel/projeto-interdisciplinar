@@ -21,12 +21,33 @@ namespace projeto_rfid.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            try
+            {
+                if (HelperController.VerificaAlunoLogado(HttpContext.Session))
+                    ViewBag.LogadoAluno = true;
+
+                return View();
+            }
+            catch(Exception err)
+            {
+                return View("Error", new ErrorViewModel(err.ToString()));
+            }
+            
         }
 
         public IActionResult Sobre()
         {
-            return View();
+            try
+            {
+                if (HelperController.VerificaAlunoLogado(HttpContext.Session))
+                    ViewBag.LogadoAluno = true;
+
+                return View();
+            }
+            catch (Exception err)
+            {
+                return View("Error", new ErrorViewModel(err.ToString()));
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Home"] - projeto_rfid</title>
+    <title>@ViewData["Title"] - TrabalhoInterdisciplinar</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -29,20 +29,23 @@
                             </li>
 
                             <!-- Trigger the modal with a button -->
-                            <li class="nav-item">
-                                <a href="" type="button" class="nav-link text-white" data-toggle="modal" data-target="#loginModal">ENTRAR</a>
-                            </li>
+
 
                             @if (ViewBag.LogadoAluno == true)
                             {
                                 <li class="nav-item">
                                     <a href="../professor/Configuracoes" class="nav-link text-white">CONFIGURAÇÕES</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="/Login/LogOff" class="nav-link text-white">SAIR</a>
+                                </li>
                             }
+                            else
+                            {
                             <li class="nav-item">
-                                <a href="/home/index" type="button" class="nav-link text-white">SAIR</a>
+                                <a href="" type="button" class="nav-link text-white" data-toggle="modal" data-target="#loginModal">ENTRAR</a>
                             </li>
-
+                            }
                         </ul>
                     </div>
 
@@ -69,14 +72,16 @@
                     </div>
                     <div class="modal-body" style="background-color: #4158B6">
 
-                        <form action="/login/Fazlogin"  method="post" enctype="multipart/form-data" class="form-group" style="display:flex; align-items:center; width:100%; justify-content: center">
+                        <form action="/login/Fazlogin" method="post" enctype="multipart/form-data" class="form-group" style="display:flex; align-items:center; width:100%; justify-content: center">
                             <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
                             <div class="conteudo" style="padding:20px; width:100%">
+                                <label for="id" class="control-label mt-1" style="color:white">RA</label>
                                 <input placeholder="RA" type="number" Name="id" value="" class="form-control" style="border-radius:14px" />
                                 <!--<input asp-for="id" class="form-control" />-->
                                 <span class="text-danger"></span>
                                 <br />
-                                <input placeholder="Senha" name="senha" type="password" Name="Nome" value="" class="form-control" style="border-radius:14px" />
+                                <label for="SenhaHash" class="control-label mt-1" style="color:white">Senha</label>
+                                <input placeholder="SenhaHash" name="SenhaHash" type="password" Name="Nome" value="" class="form-control" style="border-radius:14px" />
                                 <!--<input asp-validation-for="Nome" class="form-control" />-->
                                 <span class="text-danger"></span>
                                 <br />
@@ -107,5 +112,43 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            var Loginmessage = $('#LoginMessage').text();
+            if (Loginmessage !== '') {
+                $('#loginModal').modal('show')
+            }
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            var Passwordmessage = $('#PasswordMessage').text();
+            if (Passwordmessage !== '') {
+                $('#ConfirmaSenhaModal').modal('show')
+            }
+        });
+    </script>
+
+    <script>
+        const togglePassword = document.querySelector("#togglePassword");
+        const password = document.querySelector("#password");
+
+        togglePassword.addEventListener("click", function () {
+            // toggle the type attribute
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+
+            // toggle the icon
+            this.classList.toggle("bi-eye");
+        });
+    </script>
+
 </body>
 </html>
+

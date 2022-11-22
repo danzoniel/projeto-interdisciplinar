@@ -29,9 +29,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.24" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="mongocsharpdriver" Version="2.18.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.18.0" />
     <PackageReference Include="runtime.native.System.Data.SqlClient.sni" Version="4.7.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
   </ItemGroup>

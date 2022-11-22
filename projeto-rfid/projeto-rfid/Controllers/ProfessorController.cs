@@ -39,7 +39,17 @@ namespace projeto_rfid.Controllers
 
         public IActionResult Configuracoes()
         {
-            return View();
+            try
+            {
+                if (HelperController.VerificaAlunoLogado(HttpContext.Session))
+                    ViewBag.LogadoAluno = true;
+
+                return View();
+            }
+            catch (Exception err)
+            {
+                return View("Error", new ErrorViewModel(err.ToString()));
+            }
         }
 
         protected override void ValidaDados(ProfessorViewModel model, string operacao)
